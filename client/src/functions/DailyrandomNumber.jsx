@@ -6,7 +6,7 @@ export function getDailyRandomInt() {
   const hashedSeed = hashCode(seed);        
   const random = seededRandom(hashedSeed);
 
-  return Math.floor(random * 198);
+  return Math.floor(random * 173);
 }
 
 export function getSeed() 
