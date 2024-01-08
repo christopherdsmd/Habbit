@@ -26,10 +26,6 @@ export default function Dashboard()  {
             <div className="header-content">
             <h1>Habbit</h1>
             <img src={`assets/frog_photos/frog_${DailyrandNum}.png`} alt="frog_emoji" width="128" height="128" />
-
-           
-
-
             </div>
             <p>Daily Habit Tracker</p>
             {!!user && (<h2>Welcome back {user.name}!</h2>)}

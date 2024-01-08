@@ -18,12 +18,18 @@ export default function Login() {
             const {data} = await axios.post('/login', {
                 email,
                 password
-            });
+            }); 
+
+            
+
+            //if login error 
             if(data.error) {
-                toast.error(data.error) 
+                toast.error(data.error)     
             } else {
                 setData({});
-                navigate('/dashboard')
+                navigate('/dashboard')  //send user to dashboard on successful login
+               
+                
             }
         } catch (error) {
          
