@@ -38,7 +38,7 @@ export default function Login() {
 
     return (
     <div>    
-        <form onSubmit={loginUser}>       
+        <form onSubmit={loginUser} type = 'login'>       
             <label>Email</label>
             <input type = 'email'value={data.email} onChange={(e) => setData({...data, email: e.target.value })}/>
             <br/>

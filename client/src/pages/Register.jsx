@@ -34,7 +34,7 @@ export default function Register() {
 
     return (
         <div>
-            <form onSubmit={registerUser}>
+            <form onSubmit={registerUser} type = 'register'>
                  <label>Name</label>
                  <input type = 'text' value={data.name} onChange={(e) => setData({...data, name: e.target.value})}/>
                  <br/>

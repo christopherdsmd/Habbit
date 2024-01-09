@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  background-color: #333; /* Add your desired background color */
+}
+
+nav a {
+  color: white; /* Add your desired text color */
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
