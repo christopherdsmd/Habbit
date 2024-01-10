@@ -38,5 +38,5 @@ function seededRandom(seed) {
 
 
 export function getRandomInt() {
-  return Math.floor(Math.random() * 198);
+  return Math.floor(Math.random() * 173);
 }

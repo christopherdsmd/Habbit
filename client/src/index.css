@@ -65,3 +65,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.rotate-360 {
+  transition: transform 0.5s ease-in-out;
+}
+
+.rotate-360:active {
+  transform: rotate(360deg);
+}
+
+.solidline {
+  border: 0;
+  width: 50%; 
+  height: 2px; 
+  background: #555454; 
+  margin: 15px auto; 
+}

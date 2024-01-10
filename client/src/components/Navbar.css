@@ -1,17 +1,59 @@
+/* Navbar.css */
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   background-color: #333; /* Add your desired background color */
+  border-radius: 10px;
 }
 
-nav a {
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center;
+}
+
+.links a {
   color: white; /* Add your desired text color */
   margin-right: 10px;
   text-decoration: none;
 }
 
+.links a:hover {
+  text-decoration: underline;
+}
+
+nav a {
+  color: white; /* Add your desired text color */
+  margin-right: 8px;
+  text-decoration: none;
+}
+
 nav a:hover {
   text-decoration: underline;
+}
+
+#lightDarkButton {
+  background-color: blacks;
+  border: none;
+  cursor: pointer;
+}
+
+#lightDarkButton img {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+}
+
+#lightDarkButton:hover {
+  opacity: 0.8; /* Add a hover effect if desired */
+}
+
+.text {
+  margin-left: 10px; /* Adjust the margin to position it on the left */
 }
