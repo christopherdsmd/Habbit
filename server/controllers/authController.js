@@ -2,7 +2,7 @@ const { response } = require("express");
 const { hashPassword, comparePasswords} = require("../helpers/auth")
 const jwt = require("jsonwebtoken");
 
-const User = require('../models/user')
+const { User } = require('../models/user');
 
 const test = (req,res) => {
     res.json('test is working')

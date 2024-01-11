@@ -20,7 +20,6 @@ export default function Login() {
                 password
             }); 
 
-            
 
             //if login error 
             if(data.error) {
@@ -29,7 +28,6 @@ export default function Login() {
                 setData({});
                 navigate('/dashboard')  //send user to dashboard on successful login
                
-                
             }
         } catch (error) {
          

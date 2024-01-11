@@ -8,8 +8,6 @@ import '../index.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
-
-
 const randInt = getRandomInt(); //for rand frog img on refresh
 
 export default function Dashboard() {
@@ -21,8 +19,6 @@ export default function Dashboard() {
     setDailyrandNum(getDailyRandomInt());
   }, []);
 
-
- 
 
   const handleImageClick = () => {
     const image = document.getElementById('rotating-image');
