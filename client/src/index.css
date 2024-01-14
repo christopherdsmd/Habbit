@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -81,3 +82,4 @@ button:focus-visible {
   background: #555454; 
   margin: 15px auto; 
 }
+

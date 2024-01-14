@@ -22,7 +22,7 @@ export function UserContextProvider({ children }) {
       // Fetch data when the component mounts or when navigating to the '/dashboard' route
       fetchData();
     }
-  }, [user, location.pathname]);
+  }, [location.pathname]);
 
 
 
