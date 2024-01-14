@@ -3,6 +3,7 @@ import { UserContext } from '../../context/userContext';
 import { getDailyRandomInt, getRandomInt } from '../functions/DailyrandomNumber.jsx';
 import DateTime from '../functions/dateandtime.jsx';
 import '../index.css';
+import axios from 'axios';
 
 import Popup from '../components/addPopup.jsx';
 
@@ -56,6 +57,7 @@ export default function Dashboard() {
           <div className='Habit Tracker Dyanamic'>
             <p><u>Habits</u></p>
           
+
             <button onClick={toggleAddPopup}>Add Habit +</button>
            
             {isPopupOpen && (
