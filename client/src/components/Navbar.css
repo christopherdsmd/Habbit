@@ -8,6 +8,10 @@ nav {
   border-radius: 10px;
 }
 
+nav button {
+  background-color: #464242;
+}
+
 .logo-container {
   display: flex;
   align-items: center;

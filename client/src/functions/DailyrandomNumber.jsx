@@ -1,12 +1,14 @@
 //Daily Random Number generator
 
+const folder_contents = 173;
+
 export function getDailyRandomInt() {
   const date = new Date();
   const seed = date.toISOString().slice(0, 10); // Use the date as a seed , date. returns date 
   const hashedSeed = hashCode(seed);        
   const random = seededRandom(hashedSeed);
 
-  return Math.floor(random * 173);
+  return Math.floor(random * folder_contents);
 }
 
 export function getSeed() 
@@ -38,5 +40,5 @@ function seededRandom(seed) {
 
 
 export function getRandomInt() {
-  return Math.floor(Math.random() * 173);
+  return Math.floor(Math.random() * folder_contents);
 }
