@@ -14,42 +14,46 @@
   }
   
   .popup-box {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
-  }
-  
-  /* Add any other styles as needed */
-  
-
-.popup-box {
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: white;
-    width: 100%;
-    height: 100vh;
-}
-
-.box {
     position: relative;
-    width: 50%;
-    min-height: 300px;
-    background-color: white;
-    border: 1px solid #999;
-    margin: 20px auto;
+    width: 80%; /* Adjust as needed */
+    max-width: 400px; /* Adjust as needed */
+    background: #2b2929;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
     padding: 20px;
     overflow: auto;
-}
-
-.btn-close {
+  }
+  
+  .box {
+    margin: 20px 0;
+  }
+  
+  .btn-close {
     cursor: pointer;
-    border: 1x solid #999;
-    border-radius: 50%;
-    position: fixed;
-    right: calc(25% - 30px);
+    border: none;
+    background-color: transparent;
+    position: absolute;
     top: 15px;
-}
-
+    right: 15px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .btn-add,
+  .btn-emoji,
+  .btn-submit {
+    border: none;
+    background-color: #10b11e; /* Adjust background color as needed */
+    color: #ffffff; /* Adjust text color as needed */
+    padding: 10px; /* Adjust padding to make buttons the same size */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-emoji img {
+    width: 20px; /* Adjust image width as needed */
+    height: 20px; /* Adjust image height as needed */
+    margin-right: 5px; /* Adjust margin as needed */
+  }
+  

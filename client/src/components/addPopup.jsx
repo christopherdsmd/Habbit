@@ -34,19 +34,20 @@ const Popup = (props) => {
         </button>
         <form onSubmit={handleSubmit}>
           <label>
-            Habit -
+            Habit Name:
             <input
               type="text"
               value={habitName}
               onChange={(e) => setHabitName(e.target.value)}
+              placeholder="Read, Exercise, Meditate..."
             />
           </label>
           <label>
-            Select Emoji: 
             <input
               type="text"
               value={selectedEmoji}
               readOnly
+              placeholder="😀"
             />
             <button type="button" onClick={handleEmojiButtonClick}>
               <img src="assets/smile_emoji.png" alt=":)" width="30" height="30" />

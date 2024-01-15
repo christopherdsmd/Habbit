@@ -46,6 +46,7 @@ export default function Dashboard() {
             width="128"
             height="128"
             onClick={handleImageClick}
+            title="New frog every day!"
           />
         </div>
         <p>Daily Habit Tracker</p>
