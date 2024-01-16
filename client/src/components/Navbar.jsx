@@ -10,6 +10,8 @@ export default function Navbar() {
             </div>
 
             <div className="links">
+                <Link to ='/'>Save the Frogs! </Link> <br/>
+                <p> | </p>
                 <Link to ='/'>Signout</Link> <br/>
                 <Link to ='/login'>Login</Link><br/>
                 <Link to ='/register'>Register</Link>

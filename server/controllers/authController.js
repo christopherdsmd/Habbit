@@ -2,7 +2,7 @@ const { response } = require("express");
 const { hashPassword, comparePasswords} = require("../helpers/auth")
 const jwt = require("jsonwebtoken");
 
-const { User } = require('../models/user');
+const { User, Habit } = require('../models/user');
 
 const test = (req,res) => {
     res.json('test is working')
@@ -80,20 +80,20 @@ try {
  
 //verify json webtoken
 const getProfile = (req,res) => {
-const {token} = req.cookies
-if(token) {
-    jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
-        if(err) throw err;
-        res.json(user)
-    })
-} else { 
-    res.json(null)
-}
-}
-
+    const {token} = req.cookies
+    if(token) {
+        jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
+            if(err) throw err;
+            res.json(user)
+        })
+    } else { 
+        res.json(null)
+    }
+    }
+    
 module.exports = {
-    test,
+    test ,
     registerUser,
     loginUser,
-    getProfile
+    getProfile,
 }
