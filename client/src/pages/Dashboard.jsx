@@ -8,8 +8,6 @@ import Popup from '../components/addPopup.jsx';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
-
-
 const randInt = getRandomInt(); //for rand frog img on refresh
 
 export default function Dashboard() {
@@ -20,7 +18,6 @@ export default function Dashboard() {
   const toggleAddPopup = () => {
     setIsPopupOpen(!isPopupOpen)
   }
-
 
   useEffect(() => {
     setDailyrandNum(getDailyRandomInt());
@@ -48,7 +45,6 @@ export default function Dashboard() {
             title="New frog every day!"
           />
         </div>
-       
   
         <p>Daily Habit Tracker</p>
         {!!user && <h2>Welcome back, {user.name}!</h2>}
@@ -101,8 +97,6 @@ export default function Dashboard() {
               showWeekdayLabels={true}
               showOutOfRangeDays={true}
             />
-
-            
           </div>
         </div>
       </header>

@@ -18,5 +18,6 @@ const userSchema = new Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+const Habit = mongoose.model('Habit', HabitSchema); // Add this line to define the Habit model
 
-module.exports = { User };
+module.exports = { User, Habit };

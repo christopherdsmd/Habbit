@@ -9,6 +9,7 @@ const Popup = (props) => {
   const [habitName, setHabitName] = useState("");
   const [selectedEmoji, setSelectedEmoji] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [newHabit, setNewHabit] = useState({});
   const navigate = useNavigate();
 
   const handleEmojiClick = (emojiObject) => {
@@ -20,36 +21,28 @@ const Popup = (props) => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Habit Name:", habitName);
-    console.log("Selected Emoji:", selectedEmoji);
-
-    props.handleClose();
-  };
-
-  const addHabit = async (e) => {
-    e.preventDefault();
-    
+  const addHabit = async (event) => {
+    event.preventDefault();
+    const newHabitData = { habitName, emoji: selectedEmoji, };
+  
     try {
-      console.log('Making request to add habit:', { habitName, emoji: selectedEmoji });
-      const response = await axios.post('/add-habit', { habitName, emoji: selectedEmoji });
-
-      
-      console.log('Response from add habit:', response);
-
-      if (response.data.error) {
-        toast.error(response.data.error);
+      const { data } = await axios.post('/add-habit', newHabitData);
+  
+      if (data.error) {
+        toast.error(data.error);
       } else {
-        toast.success('Habit Added Successfully');
+        // Assuming you have a state variable named newHabit
+        setNewHabit({});
+        console.log('Habit added successfully:', data);
+        toast.success('Habit added successfully');
+        props.handleClose();
       }
     } catch (error) {
-      console.error(error);
-      toast.error('An error occurred. Please try again.');
+      toast.error('Error adding habit');
+      console.error('Error adding habit:', error.response?.data || error.message);
     }
-  };
-  
+  }
+
 
   return (
     <div className="popup-box">
