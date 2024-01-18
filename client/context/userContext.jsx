@@ -14,15 +14,16 @@ export function UserContextProvider({ children }) {
         const { data } = await axios.get('/profile');
         setUser(data);
       } catch (error) {
-        // Handle error
+        console.error('Error fetching profile:', error.response?.data || error.message);
       }
     };
-
+  
     if (!user || location.pathname === '/dashboard') {
       // Fetch data when the component mounts or when navigating to the '/dashboard' route
       fetchData();
     }
-  }, [location.pathname]);
+  }, [location.pathname, user]);
+  
 
 
 

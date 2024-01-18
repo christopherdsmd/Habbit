@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./addPopup.css";
 import Picker from "emoji-picker-react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-hot-toast';
+
 
 const Popup = (props) => {
   const [habitName, setHabitName] = useState("");
@@ -21,27 +22,27 @@ const Popup = (props) => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const addHabit = async (event) => {
-    event.preventDefault();
-    const newHabitData = { habitName, emoji: selectedEmoji, };
+    const addHabit = async (event) => {
+      event.preventDefault();
+      const newHabitData = { habitName, emoji: selectedEmoji };
   
-    try {
-      const { data } = await axios.post('/add-habit', newHabitData);
+      try {
+        const { data } = await axios.post('/add-habit', newHabitData);
   
-      if (data.error) {
-        toast.error(data.error);
-      } else {
-        // Assuming you have a state variable named newHabit
-        setNewHabit({});
-        console.log('Habit added successfully:', data);
-        toast.success('Habit added successfully');
-        props.handleClose();
+        if (data.error) {
+          toast.error(data.error);
+        } else {
+          setNewHabit({}); // Reset the state after successful addition
+          console.log('Habit added successfully:', data);
+          toast.success('Habit added successfully');
+          props.handleClose();
+        }
+      } catch (error) {
+        toast.error('Error adding habit');
+        console.error('Error adding habit:', error.response?.data || error.message);
       }
-    } catch (error) {
-      toast.error('Error adding habit');
-      console.error('Error adding habit:', error.response?.data || error.message);
-    }
-  }
+    };
+  
 
 
   return (

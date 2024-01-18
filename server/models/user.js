@@ -7,6 +7,8 @@ const HabitSchema = new Schema({
     daily_check: { type: [Date], default: [] },
 });
 
+const Habit = mongoose.model('Habit', HabitSchema);
+
 const userSchema = new Schema({
     name: String,
     email: {
@@ -14,10 +16,9 @@ const userSchema = new Schema({
         unique: true
     },
     password: String,
-    habits: [HabitSchema] // Embed HabitSchema directly
+    habits: [{ type: Schema.Types.ObjectId, ref: 'Habit' }] // Reference Habit model
 });
 
 const User = mongoose.model('User', userSchema);
-const Habit = mongoose.model('Habit', HabitSchema); // Add this line to define the Habit model
 
 module.exports = { User, Habit };

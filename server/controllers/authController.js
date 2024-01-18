@@ -2,6 +2,8 @@ const { response } = require("express");
 const { hashPassword, comparePasswords} = require("../helpers/auth")
 const jwt = require("jsonwebtoken");
 const { User, Habit } = require('../models/user');
+//middleware
+const authenticateUser = require('../helpers/auth');
 
 const emoji = require("emoji");
 
@@ -95,38 +97,54 @@ const getProfile = (req,res) => {
 
     const addHabit = async (req, res) => {
         try {
-          // Destructure habitName and selectedEmoji from req.body instead of req.Habit
-          const { habitName, emoji: selectedEmoji } = req.body;
-      
-          // Check if habitName is entered
-          if (!habitName) {
-            return res.json({
-              error: 'Habit Name is required',
-            });
-          }
-      
-          // Check if selectedEmoji is entered
-          if (!selectedEmoji) {
-            return res.json({
-              error: 'Emoji is required',
-            });
-          }
-      
-          // Assuming you have a Habit model defined, use it to create a new habit
-          const newHabit = await Habit.create({
-            habit_name: habitName, // Adjust property names according to your schema
-            emoji: selectedEmoji,
-          });
-      
-          return res.json(newHabit);
-        } catch (error) {
-          console.log(error);
-          return res.status(500).json({
-            error: 'Internal Server Error',
-          });
-        }
-      };
+            // Destructure habitName and selectedEmoji from req.body instead of req.Habit
+            const { habitName, emoji: selectedEmoji } = req.body;
+    
+            // Check if habitName and selectedEmoji are entered
+            if (!habitName || !selectedEmoji) {
+                return res.status(400).json({
+                    error: 'Habit Name and Emoji are required',
+                });
+            }
+    
+            // Get the user's ID from the decoded JWT token
+            const userId = req.userId; // Adjust according to your JWT payload structure
 
+            console.log(userId)
+            
+            // Create a new habit using the Habit model
+            const newHabit = new Habit({
+                habit_name: habitName,
+                emoji: selectedEmoji,
+            });
+    
+            // Save the new habit
+            await newHabit.save();
+    
+            // Update the user's habits array by pushing the new habit's ID
+            const updatedUser = await User.findByIdAndUpdate(
+                userId,
+                { $push: { habits: newHabit._id } },
+                { new: true }
+            );
+    
+            return res.status(201).json({ message: 'Habit added successfully', user: updatedUser });
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                error: 'Internal Server Error',
+            });
+        }
+    };
+    
+    module.exports = {
+        test,
+        registerUser,
+        loginUser,
+        getProfile,
+        addHabit,
+    };
+    
     
 module.exports = {
     test ,
