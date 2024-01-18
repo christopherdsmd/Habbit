@@ -94,10 +94,9 @@ const getProfile = (req,res) => {
     }
     }
 
-
     const addHabit = async (req, res) => {
         try {
-            // Destructure habitName and selectedEmoji from req.body instead of req.Habit
+            // Destructure habitName and selectedEmoji from req.body
             const { habitName, emoji: selectedEmoji } = req.body;
     
             // Check if habitName and selectedEmoji are entered
@@ -108,12 +107,21 @@ const getProfile = (req,res) => {
             }
     
             // Get the user's ID from the decoded JWT token
-            const userId = req.userId; // Adjust according to your JWT payload structure
+            const token = req.cookies.token;
+    
+            if (!token) {
+                return res.status(401).json({
+                    error: 'Unauthorized: Missing token',
+                });
+            }
+    
+            const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+            const userId = decodedToken.id;
 
-            console.log(userId)
-            
+
             // Create a new habit using the Habit model
             const newHabit = new Habit({
+                userId: userId,
                 habit_name: habitName,
                 emoji: selectedEmoji,
             });
@@ -136,15 +144,7 @@ const getProfile = (req,res) => {
             });
         }
     };
-    
-    module.exports = {
-        test,
-        registerUser,
-        loginUser,
-        getProfile,
-        addHabit,
-    };
-    
+
     
 module.exports = {
     test ,
