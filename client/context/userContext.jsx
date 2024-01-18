@@ -18,18 +18,15 @@ export function UserContextProvider({ children }) {
       }
     };
   
-    if (!user || location.pathname === '/dashboard') {
-      // Fetch data when the component mounts or when navigating to the '/dashboard' route
+    // Fetch data only when the user is not set
+    if (!user && location.pathname === '/dashboard') {
       fetchData();
     }
   }, [location.pathname, user]);
   
-
-
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
-}
+} 
