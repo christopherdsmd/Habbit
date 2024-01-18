@@ -94,6 +94,14 @@ const getProfile = (req,res) => {
     }
     }
 
+    const signOut = (req, res) => {
+        res.clearCookie('token');
+      
+        res.json({ message: 'Logged out successfully' });
+      };
+
+      
+
     const addHabit = async (req, res) => {
         try {
             // Destructure habitName and selectedEmoji from req.body
@@ -152,4 +160,5 @@ module.exports = {
     loginUser,
     getProfile,
     addHabit,
+    signOut,
 }

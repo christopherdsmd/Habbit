@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export const UserContext = createContext({});
@@ -17,16 +17,18 @@ export function UserContextProvider({ children }) {
         console.error('Error fetching profile:', error.response?.data || error.message);
       }
     };
-  
-    // Fetch data only when the user is not set
-    if (!user && location.pathname === '/dashboard') {
+
+    if (!user || location.pathname === '/dashboard') {
+      // Fetch data when the component mounts or when navigating to the '/dashboard' route
       fetchData();
     }
-  }, [location.pathname, user]);
-  
+  }, [location.pathname]);
+
+
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
-} 
+}
