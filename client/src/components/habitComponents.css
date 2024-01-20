@@ -1,0 +1,25 @@
+.habit-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+  }
+  
+  .habit-entry {
+    margin-right: 10px; /* Adjust as needed for spacing between items */
+    margin-bottom: 10px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+  }
+  
+  .habit-name {
+    margin-right: 5px; /* Adjust as needed */
+  }
+  
+  .add-entry-btn {
+    background-color: #37a773;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

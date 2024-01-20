@@ -153,6 +153,33 @@ const getProfile = (req,res) => {
         }
     };
 
+
+ // authController.js
+
+const getHabits = async (userId) => {
+    try {
+      // Find the user with the specified userId and populate the 'habits' field
+      const user = await User.findById(userId).populate('habits');
+  
+      if (!user) {
+        // Handle the case where the user is not found
+        console.error('User not found');
+        return [];
+      }
+  
+      // Access the populated habits array from the user document
+      const habits = user.habits;
+      
+      return habits;
+    } catch (error) {
+      console.error('Error fetching habits:', error);
+      throw new Error('Internal Server Error');
+    }
+  };
+  
+
+
+
     
 module.exports = {
     test ,
@@ -160,5 +187,5 @@ module.exports = {
     loginUser,
     getProfile,
     addHabit,
-    signOut,
+    getHabits,
 }

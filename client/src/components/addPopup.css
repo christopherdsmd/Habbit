@@ -1,59 +1,60 @@
 /* addPopup.css */
 
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .popup-box {
-    position: relative;
-    width: 80%; /* Adjust as needed */
-    max-width: 400px; /* Adjust as needed */
-    background: #2b2929;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    z-index: 1001;
-    padding: 20px;
-    overflow: auto;
-  }
-  
-  .box {
-    margin: 20px 0;
-  }
-  
-  .btn-close {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
-    color: #333;
-  }
-  
-  .btn-add,
-  .btn-emoji,
-  .btn-submit {
-    border: none;
-    background-color: #10b11e; /* Adjust background color as needed */
-    color: #ffffff; /* Adjust text color as needed */
-    padding: 10px; /* Adjust padding to make buttons the same size */
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-emoji img {
-    width: 20px; /* Adjust image width as needed */
-    height: 20px; /* Adjust image height as needed */
-    margin-right: 5px; /* Adjust margin as needed */
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  position: relative;
+  width: 80%; /* Adjust as needed */
+  max-width: 400px; /* Adjust as needed */
+  background: #2b2929;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  padding: 20px;
+  overflow: auto;
+  margin: auto; /* Center horizontally */
+  max-height: 80%; /* Adjust as needed */
+}
+
+.box {
+  margin: 20px 0;
+}
+
+.btn-close {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.btn-add,
+.btn-emoji,
+.btn-submit {
+  border: none;
+  background-color: #10b11e; /* Adjust background color as needed */
+  color: #ffffff; /* Adjust text color as needed */
+  padding: 10px; /* Adjust padding to make buttons the same size */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-emoji img {
+  width: 20px; /* Adjust image width as needed */
+  height: 20px; /* Adjust image height as needed */
+  margin-right: 5px; /* Adjust margin as needed */
+}

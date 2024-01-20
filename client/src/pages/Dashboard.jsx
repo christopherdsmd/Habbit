@@ -5,6 +5,8 @@ import DateTime from '../functions/dateandtime.jsx';
 import '../index.css';
 import axios from 'axios';
 import Popup from '../components/addPopup.jsx';
+import HabitComponent from '../components/habitComponent.jsx';
+
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
@@ -54,13 +56,7 @@ export default function Dashboard() {
           <div className='Habit Tracker Dyanamic'>
             <DateTime />
             <p><u>Habits</u></p>
-  
-            <input type="checkbox" />
-            <label htmlFor="habit1"> Yoga 🧘</label>
-            <input type="checkbox" />
-            <label htmlFor="habit2">Read 📚</label>
-        
-  
+            <HabitComponent></HabitComponent>
             <button onClick={toggleAddPopup}>Add Habit +</button>
   
             {isPopupOpen && (
@@ -72,31 +68,7 @@ export default function Dashboard() {
           <div className='habit calandars'>
             <p><u>Calendar View</u></p>
   
-            <p>Yoga 🧘</p>
-            <CalendarHeatmap
-              key="yoga"
-              startDate={new Date('2024-01-01')}
-              endDate={new Date('2024-12-31')}
-              values={[
-                { date: '2024-01-16', count: 12 },
-                // ... other data
-              ]}
-              showWeekdayLabels={true}
-              showOutOfRangeDays={true}
-            />
-
-            <p>Read 📚</p>
-            <CalendarHeatmap
-              key="read"
-              startDate={new Date('2024-01-01')}
-              endDate={new Date('2024-12-31')}
-              values={[
-                { date: '2024-01-16', count: 12 },
-                // ... other data
-              ]}
-              showWeekdayLabels={true}
-              showOutOfRangeDays={true}
-            />
+       
           </div>
         </div>
       </header>
