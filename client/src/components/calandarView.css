@@ -1,0 +1,16 @@
+/* calandarView.css */
+
+.deletebtn {
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .deletebtn:hover {
+    background-color: darkred;
+  }
+  

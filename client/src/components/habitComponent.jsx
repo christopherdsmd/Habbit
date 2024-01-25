@@ -25,9 +25,8 @@ const HabitComponent = () => {
         <div key={habit._id} className="habit-entry">
           <label className="habit-name" htmlFor="habit1">
             {habit.habit_name} {habit.emoji}
-          </label>
+          </label> <br></br>
           <button type="button" className="add-entry-btn">
-            {/* Add your button content */}
           </button>
         </div>
       ))}

@@ -6,9 +6,9 @@ import '../index.css';
 import axios from 'axios';
 import Popup from '../components/addPopup.jsx';
 import HabitComponent from '../components/habitComponent.jsx';
+import CalendarView from '../components/calandarView';
+import DeletePopup from '../components/deletePopup.jsx';
 
-import CalendarHeatmap from 'react-calendar-heatmap';
-import 'react-calendar-heatmap/dist/styles.css';
 
 const randInt = getRandomInt(); //for rand frog img on refresh
 
@@ -16,9 +16,15 @@ export default function Dashboard() {
   const { user } = useContext(UserContext);
   const [DailyrandNum, setDailyrandNum] = useState(0);  //daily random frog
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [deletePopupOpen, setDeletePopupOpen] = useState(false);
+  const [habits, setHabits] = useState([]);
 
   const toggleAddPopup = () => {
     setIsPopupOpen(!isPopupOpen)
+  }
+
+  const toggleDeletePopup = () => {
+    setDeletePopupOpen(!deletePopupOpen)
   }
 
   useEffect(() => {
@@ -67,8 +73,13 @@ export default function Dashboard() {
           
           <div className='habit calandars'>
             <p><u>Calendar View</u></p>
-  
-       
+              <CalendarView/>
+              <button className='deletebtn' onClick={toggleDeletePopup}>Delete Habit</button>
+          {
+            deletePopupOpen && (
+              <DeletePopup habits={habits} setDeletePopupOpen={setDeletePopupOpen} />
+            )
+          }
           </div>
         </div>
       </header>
