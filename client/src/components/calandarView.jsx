@@ -25,7 +25,7 @@ const CalendarView = () => {
   
   const defaultCount = 0;
   
-  const values = generateDateValues(startDate, endDate, defaultCount);
+  const values = generateDateValues(startDate, endDate, defaultCount-1);
   
   console.log(values);
   
@@ -59,6 +59,7 @@ const CalendarView = () => {
             ]}
             showWeekdayLabels={true}
             showOutOfRangeDays={true}
+            
           />
         </div>
       ))}

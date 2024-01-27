@@ -1,33 +1,33 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './habitComponents.css';
 
-
-const HabitComponent = () => {
-  const [habits, setHabits] = useState([]);
+const HabitComponent = ({ setHabits }) => {
+  const [localHabits, setLocalHabits] = useState([]);
 
   useEffect(() => {
     const fetchHabits = async () => {
       try {
         const response = await axios.get('/habits');
-        setHabits(response.data);
+        setLocalHabits(response.data);
+        setHabits(response.data); // Update the habits in the parent component
       } catch (error) {
         console.error('Error fetching habits:', error);
       }
     };
 
     fetchHabits();
-  }, []);
+  }, [setHabits]);
 
   return (
     <div className="habit-container">
-      {habits.map((habit) => (
+      {localHabits.map((habit) => (
         <div key={habit._id} className="habit-entry">
           <label className="habit-name" htmlFor="habit1">
             {habit.habit_name} {habit.emoji}
-          </label> <br></br>
-          <button type="button" className="add-entry-btn">
-          </button>
+            <br />
+            <button type="button" className="add-entry-btn"></button>
+          </label>
         </div>
       ))}
     </div>

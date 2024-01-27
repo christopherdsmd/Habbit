@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors')
 const jwt = require('jsonwebtoken');
-const { test,registerUser,loginUser, getProfile, addHabit, getHabits } = require('../controllers/authController')
+const { test,registerUser,loginUser, getProfile, addHabit, getHabits, deleteHabit } = require('../controllers/authController')
 const { User } = require('../models/user.js');
 
 //login/register routes
@@ -14,6 +14,8 @@ router.use(
     })
 )
 
+
+
 router.get('/', test)
 router.post('/register', registerUser)
 router.post('/login', loginUser)
@@ -22,6 +24,21 @@ router.get('/profile', getProfile)
 
 //habit routes 
 router.post('/add-habit', addHabit)
+
+router.delete('/delete-habit/:habitId/:userEmail', async (req, res) => {
+    const { habitId, userId } = req.params;
+
+    try {
+        // Now you can use habitId and userId in your logic
+        const result = await deleteHabit(habitId, userId);
+        res.json(result);
+    } catch (error) {
+        console.error('Error handling delete request:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
 
 router.get('/habits', async (req, res) => {
     try {

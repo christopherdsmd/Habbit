@@ -2,6 +2,8 @@ const { response } = require("express");
 const { hashPassword, comparePasswords} = require("../helpers/auth")
 const jwt = require("jsonwebtoken");
 const { User, Habit } = require('../models/user');
+const { ObjectId } = require('mongoose').Types;
+
 //middleware
 const authenticateUser = require('../helpers/auth');
 
@@ -177,7 +179,43 @@ const getHabits = async (userId) => {
     }
   };
   
+  const deleteHabit = async (habitId, userId) => {
+    try {
+        console.log('Received request to delete habit:', habitId, 'for user:', userId);
 
+        // Check if habitId is a valid ObjectId
+        if (!ObjectId.isValid(habitId)) {
+            console.log('Invalid habitId:', habitId);
+            return { error: 'Invalid habitId' };
+        }
+
+        // Find and delete the habit based on habitId
+        let deletedHabit;
+        try {
+            deletedHabit = await Habit.findByIdAndDelete(habitId);
+
+            if (!deletedHabit) {
+                console.log('Habit not found for deletion:', habitId);
+                return { error: 'Habit not found' };
+            }
+        } catch (error) {
+            throw new Error('Internal Server Error');
+        }
+
+        // Remove the habitId from the user's habits array
+        await User.findByIdAndUpdate(userId, { $pull: { habits: habitId } });
+
+        // Log the deleted habit and updated user for debugging
+        console.log('Deleted Habit:', deletedHabit);
+        const updatedUser = await User.findById(userId).populate('habits');
+        console.log('Updated User:', updatedUser);
+
+        return { message: 'Habit deleted successfully', deletedHabit, updatedUser };
+    } catch (error) {
+        console.error('Error deleting habit:', error);
+        throw new Error('Internal Server Error');
+    }
+};
 
 
     
@@ -188,4 +226,5 @@ module.exports = {
     getProfile,
     addHabit,
     getHabits,
+    deleteHabit,
 }

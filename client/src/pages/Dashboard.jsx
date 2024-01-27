@@ -55,18 +55,18 @@ export default function Dashboard() {
         </div>
   
         <p>Daily Habit Tracker</p>
-        {!!user && <h2>Welcome back, {user.name}!</h2>}
+        {!!user && <h2>Welcome back, {user.name}!  </h2>}
         <div className="Date and time">
           <hr className="solidline" />
   
           <div className='Habit Tracker Dyanamic'>
             <DateTime />
             <p><u>Habits</u></p>
-            <HabitComponent></HabitComponent>
+            <HabitComponent setHabits={setHabits}/>
             <button onClick={toggleAddPopup}>Add Habit +</button>
-  
+
             {isPopupOpen && (
-              <Popup handleClose={() => setIsPopupOpen(false)} content={<div><h3>Add Habit</h3></div>} />
+              <Popup setHabits={setHabits} handleClose={() => setIsPopupOpen(false)} content={<div><h3>Add Habit</h3></div>} />
             )}
           </div>
           <hr className="solidline" />
@@ -77,7 +77,7 @@ export default function Dashboard() {
               <button className='deletebtn' onClick={toggleDeletePopup}>Delete Habit</button>
           {
             deletePopupOpen && (
-              <DeletePopup habits={habits} setDeletePopupOpen={setDeletePopupOpen} />
+              <DeletePopup userId={user._id} habits={setHabits} setDeletePopupOpen={setDeletePopupOpen} />
             )
           }
           </div>
