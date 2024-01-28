@@ -24,19 +24,19 @@ router.get('/profile', getProfile)
 
 //habit routes 
 router.post('/add-habit', addHabit)
-
-router.delete('/delete-habit/:habitId/:userEmail', async (req, res) => {
-    const { habitId, userId } = req.params;
+// Your Express route
+router.delete('/delete-habit/:habitId/:userID', async (req, res) => {
+    const { habitId } = req.params;
 
     try {
-        // Now you can use habitId and userId in your logic
-        const result = await deleteHabit(habitId, userId);
+        const result = await deleteHabit(habitId, req, res);
         res.json(result);
     } catch (error) {
-        console.error('Error handling delete request:', error);
+        console.error('Error in route:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 
 

@@ -3,7 +3,7 @@ import "./deletePopup.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-const DeletePopup = ({ userEmail, setDeletePopupOpen }) => {
+const DeletePopup = ({ userID, setDeletePopupOpen }) => {
     const [habits, setHabits] = useState([]);
 
     useEffect(() => {
@@ -17,30 +17,28 @@ const DeletePopup = ({ userEmail, setDeletePopupOpen }) => {
         };
 
         fetchHabits();
-    }, []);
+    }, [userID]);
 
-    const deleteHabit = async (habitId, userEmail) => {
-        try {
-          const { data } = await axios.delete(`/delete-habit/${habitId}/${userEmail}`);
-          
-          if (data.error) {
-            toast.error(data.error);
-          } else {
-            const updatedHabits = habits.filter((habit) => habit._id !== habitId);
-            setHabits(updatedHabits);
-      
-            console.log("Habit deleted successfully:", data);
-            toast.success("Habit deleted successfully");
-            // Optionally, you can refetch habits after deletion to update the list
-            // fetchHabits();
-          }
-        } catch (error) {
-          // Handle errors
-          toast.error("Error deleting habit");
-          console.error("Error deleting habit:", error.response?.data || error.message);
-        }
-      };
+   const deleteHabit = async (habitId,userID) => {
+  try {
+    const { data } = await axios.delete(`/delete-habit/${habitId}/${userID}`);
     
+    if (data.error) {
+      toast.error(data.error);
+    } else {
+
+        
+      console.log("Habit deleted successfully:", data);
+      toast.success("Habit deleted successfully");
+      
+     
+    }
+  } catch (error) {
+    // Handle errors
+    toast.error("Error deleting habit");
+    console.error("Error deleting habit:", error.response?.data || error.message);
+  }
+};
 
     return (
         <div className="overlay">

@@ -179,15 +179,26 @@ const getHabits = async (userId) => {
     }
   };
   
-  const deleteHabit = async (habitId, userId) => {
+  const deleteHabit = async (habitId, req, res) => {
     try {
-        console.log('Received request to delete habit:', habitId, 'for user:', userId);
-
         // Check if habitId is a valid ObjectId
         if (!ObjectId.isValid(habitId)) {
             console.log('Invalid habitId:', habitId);
             return { error: 'Invalid habitId' };
         }
+
+        const token = req.cookies.token;
+
+        if (!token) {
+            return res.status(401).json({
+                error: 'Unauthorized: Missing token',
+            });
+        }
+
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decodedToken.id;
+
+        console.log('Received request to delete habit:', habitId, 'for user:', userId);
 
         // Find and delete the habit based on habitId
         let deletedHabit;
@@ -216,6 +227,7 @@ const getHabits = async (userId) => {
         throw new Error('Internal Server Error');
     }
 };
+
 
 
     

@@ -16,15 +16,29 @@ export default function Dashboard() {
   const { user } = useContext(UserContext);
   const [DailyrandNum, setDailyrandNum] = useState(0);  //daily random frog
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [deletePopupOpen, setDeletePopupOpen] = useState(false);
+  const [DeletePopupOpen, setDeletePopupOpen] = useState(false);
   const [habits, setHabits] = useState([]);
+
+  useEffect(() => {
+    const fetchHabits = async () => {
+        try {
+            const response = await axios.get('/habits');
+            setHabits(response.data);
+        } catch (error) {
+            console.error('Error fetching habits:', error);
+        }
+    };
+
+    fetchHabits();
+}, []);
+
 
   const toggleAddPopup = () => {
     setIsPopupOpen(!isPopupOpen)
   }
 
   const toggleDeletePopup = () => {
-    setDeletePopupOpen(!deletePopupOpen)
+    setDeletePopupOpen(!DeletePopupOpen)
   }
 
   useEffect(() => {
@@ -76,8 +90,8 @@ export default function Dashboard() {
               <CalendarView/>
               <button className='deletebtn' onClick={toggleDeletePopup}>Delete Habit</button>
           {
-            deletePopupOpen && (
-              <DeletePopup userId={user._id} habits={setHabits} setDeletePopupOpen={setDeletePopupOpen} />
+            DeletePopupOpen && (
+              <DeletePopup userID={user._id} habits={setHabits} setDeletePopupOpen={setDeletePopupOpen} />
             )
           }
           </div>
