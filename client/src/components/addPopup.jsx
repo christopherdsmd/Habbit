@@ -30,7 +30,7 @@ const Popup = (props) => {
       if (data.error) {
         toast.error(data.error);
       } else {
-        // Update the habits state in the parent component
+   
         props.setHabits(data.user.habits);
 
         console.log('Habit added successfully:', data);

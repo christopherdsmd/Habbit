@@ -9,46 +9,50 @@ import HabitComponent from '../components/habitComponent.jsx';
 import CalendarView from '../components/calandarView';
 import DeletePopup from '../components/deletePopup.jsx';
 
-
-const randInt = getRandomInt(); //for rand frog img on refresh
+const randInt = getRandomInt(); // for rand frog img on refresh
 
 export default function Dashboard() {
   const { user } = useContext(UserContext);
-  const [DailyrandNum, setDailyrandNum] = useState(0);  //daily random frog
+  const [DailyrandNum, setDailyrandNum] = useState(0); // daily random frog
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [DeletePopupOpen, setDeletePopupOpen] = useState(false);
   const [habits, setHabits] = useState([]);
 
+  const fetchHabits = async () => {
+    try {
+      const response = await axios.get('/habits');
+      setHabits(response.data);
+    } catch (error) {
+      console.error('Error fetching habits:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchHabits = async () => {
-        try {
-            const response = await axios.get('/habits');
-            setHabits(response.data);
-        } catch (error) {
-            console.error('Error fetching habits:', error);
-        }
-    };
-
     fetchHabits();
-}, []);
-
+  }, []);
 
   const toggleAddPopup = () => {
-    setIsPopupOpen(!isPopupOpen)
-  }
+    setIsPopupOpen(!isPopupOpen);
+  };
 
   const toggleDeletePopup = () => {
-    setDeletePopupOpen(!DeletePopupOpen)
-  }
+    setDeletePopupOpen(!DeletePopupOpen);
+  };
 
   useEffect(() => {
     setDailyrandNum(getDailyRandomInt());
   }, []);
 
-
   const handleImageClick = () => {
     const image = document.getElementById('rotating-image');
     image.classList.toggle('rotate-360');
+  };
+
+  // Callback function to handle closing of pop-ups and fetch habits
+  const handleClosePopups = () => {
+    setIsPopupOpen(false);
+    setDeletePopupOpen(false);
+    fetchHabits(); // Call fetchHabits to update habit list
   };
 
   return (
@@ -67,35 +71,42 @@ export default function Dashboard() {
             title="New frog every day!"
           />
         </div>
-  
+
         <p>Daily Habit Tracker</p>
-        {!!user && <h2>Welcome back, {user.name}!  </h2>}
+        {!!user && <h2>Welcome back, {user.name}! </h2>}
         <div className="Date and time">
           <hr className="solidline" />
-  
-          <div className='Habit Tracker Dyanamic'>
+
+          <div className="Habit Tracker Dyanamic">
             <DateTime />
-            <p><u>Habits</u></p>
-            <HabitComponent setHabits={setHabits}/>
+            <p>
+              <u>Habits</u>
+            </p>
+            <HabitComponent habits={habits} setHabits={setHabits} />
             <button onClick={toggleAddPopup}>Add Habit +</button>
 
             {isPopupOpen && (
-              <Popup setHabits={setHabits} handleClose={() => setIsPopupOpen(false)} content={<div><h3>Add Habit</h3></div>} />
+              <Popup setHabits={setHabits} handleClose={handleClosePopups} content={<div><h3>Add Habit</h3></div>} />
             )}
           </div>
+
           <hr className="solidline" />
-          
-          <div className='habit calandars'>
-            <p><u>Calendar View</u></p>
-              <CalendarView/>
-              <button className='deletebtn' onClick={toggleDeletePopup}>Delete Habit</button>
-          {
-            DeletePopupOpen && (
-              <DeletePopup userID={user._id} habits={setHabits} setDeletePopupOpen={setDeletePopupOpen} />
-            )
-          }
+
+          <div className="habit calandars">
+            <p>
+              <u>Calendar View</u>
+            </p>
+            <CalendarView habits={habits} />
+            <button className="deletebtn" onClick={toggleDeletePopup}>
+              Delete Habit
+            </button>
+          {DeletePopupOpen && (
+           <DeletePopup userID={user._id} setHabits={setHabits} setDeletePopupOpen={setDeletePopupOpen} handleClose={handleClosePopups} />
+
+          )}
           </div>
         </div>
       </header>
     </div>
-  )};
+  );
+}

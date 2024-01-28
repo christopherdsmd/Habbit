@@ -5,11 +5,11 @@ import './calandarView.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
-const CalendarView = () => {
+const CalendarView = ({ habits }) => {
   const startDate = new Date('2024-01-01');
   const endDate = new Date('2024-12-31');
-  
-  // Function to generate an array of date objects with a default count
+  const defaultCount = 0;
+
   const generateDateValues = (start, end, defaultCount) => {
     const dateValues = [];
     let currentDate = new Date(start);
@@ -22,28 +22,6 @@ const CalendarView = () => {
   
     return dateValues;
   };
-  
-  const defaultCount = 0;
-  
-  const values = generateDateValues(startDate, endDate, defaultCount-1);
-  
-  console.log(values);
-  
-
-  const [habits, setHabits] = useState([]);
-
-  useEffect(() => {
-    const fetchHabits = async () => {
-      try {
-        const response = await axios.get('/habits');
-        setHabits(response.data);
-      } catch (error) {
-        console.error('Error fetching habits:', error);
-      }
-    };
-
-    fetchHabits();
-  }, []);
 
   return (
     <div>
@@ -52,18 +30,16 @@ const CalendarView = () => {
           <h2>{habit.habit_name}{habit.emoji}</h2>
           <CalendarHeatmap
             key={habit._id}
-            startDate={new Date('2024-01-01')}
-            endDate={new Date('2024-12-31')}
+            startDate={startDate}
+            endDate={endDate}
             values={[
-              { values },
+              { values: generateDateValues(startDate, endDate, defaultCount) },
             ]}
             showWeekdayLabels={true}
             showOutOfRangeDays={true}
-            
           />
         </div>
       ))}
-      
     </div>
   );
 };

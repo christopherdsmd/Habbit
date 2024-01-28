@@ -6,39 +6,41 @@ import { toast } from "react-hot-toast";
 const DeletePopup = ({ userID, setDeletePopupOpen }) => {
     const [habits, setHabits] = useState([]);
 
-    useEffect(() => {
-        const fetchHabits = async () => {
-            try {
-                const response = await axios.get('/habits');
-                setHabits(response.data);
-            } catch (error) {
-                console.error('Error fetching habits:', error);
-            }
-        };
+    const fetchHabits = async () => {
+        try {
+            const response = await axios.get('/habits');
+            setHabits(response.data);
+        } catch (error) {
+            console.error('Error fetching habits:', error);
+        }
+    };
 
+    useEffect(() => {
         fetchHabits();
     }, [userID]);
 
-   const deleteHabit = async (habitId,userID) => {
-  try {
-    const { data } = await axios.delete(`/delete-habit/${habitId}/${userID}`);
+    const deleteHabit = async (habitId) => {
+        try {
+            const { data } = await axios.delete(`/delete-habit/${habitId}/${userID}`);
+            fetchHabits();
     
-    if (data.error) {
-      toast.error(data.error);
-    } else {
-
-        
-      console.log("Habit deleted successfully:", data);
-      toast.success("Habit deleted successfully");
-      
-     
-    }
-  } catch (error) {
-    // Handle errors
-    toast.error("Error deleting habit");
-    console.error("Error deleting habit:", error.response?.data || error.message);
-  }
-};
+            if (data.error) {
+                toast.error(data.error);
+            } else {
+                // Assuming you passed setHabits as a prop to DeletePopup
+                setHabits(data.user.habits);
+    
+                console.log("Habit deleted successfully:", data);
+                toast.success("Habit deleted successfully");
+                props.handleClose();
+            }
+        } catch (error) {
+            // Handle errors
+            toast.error("Error deleting habit");
+            console.error("Error deleting habit:", error.response?.data || error.message);
+        }
+    };
+    
 
     return (
         <div className="overlay">
