@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 
-const DeletePopup = ({ userID, setDeletePopupOpen }) => {
+const DeletePopup = ({ userID, setDeletePopupOpen, handleClosePopups  }) => {
     const [habits, setHabits] = useState([]);
 
     const fetchHabits = async () => {
@@ -32,7 +32,7 @@ const DeletePopup = ({ userID, setDeletePopupOpen }) => {
     
                 console.log("Habit deleted successfully:", data);
                 toast.success("Habit deleted successfully");
-                
+                handleClosePopups();
             }
         } catch (error) {
             // Handle errors
