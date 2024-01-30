@@ -102,7 +102,6 @@ export default function Dashboard() {
             </button>
           {DeletePopupOpen && (
            <DeletePopup userID={user._id} setHabits={setHabits} setDeletePopupOpen={setDeletePopupOpen} handleClose={handleClosePopups} />
-
           )}
           </div>
         </div>

@@ -3,6 +3,7 @@ import "./deletePopup.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
+
 const DeletePopup = ({ userID, setDeletePopupOpen }) => {
     const [habits, setHabits] = useState([]);
 
@@ -28,11 +29,10 @@ const DeletePopup = ({ userID, setDeletePopupOpen }) => {
                 toast.error(data.error);
             } else {
                 // Assuming you passed setHabits as a prop to DeletePopup
-                setHabits(data.user.habits);
     
                 console.log("Habit deleted successfully:", data);
                 toast.success("Habit deleted successfully");
-                props.handleClose();
+                
             }
         } catch (error) {
             // Handle errors
