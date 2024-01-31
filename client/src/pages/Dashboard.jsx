@@ -82,7 +82,7 @@ export default function Dashboard() {
             <p>
               <u>Habits</u>
             </p>
-            <HabitComponent habits={habits} setHabits={setHabits} />
+            <HabitComponent habits={habits} handleClosePopups={handleClosePopups} />
             <button onClick={toggleAddPopup}>Add Habit +</button>
 
             {isPopupOpen && (

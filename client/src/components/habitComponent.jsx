@@ -1,38 +1,36 @@
 import React from 'react';
+import axios from 'axios'; 
+import toast  from "react-hot-toast"; 
 import './habitComponents.css';
 import DateTime from '../functions/dateandtime';
 
-const updateDailyCheck = async (habitID, date, event) => {
-  event.preventDefault();
+const HabitComponent = ({ habits, handleClosePopups }) => {
+  const updateDailyCheck = async (habitID, date, event) => {
+    event.preventDefault();
 
-  // Assuming date is in the format 'YYYY-MM-DD'
-  const formattedDate = date.toISOString().split('T')[0];
-  
-  const updateDailyValue = { date: formattedDate };
+    // Assuming date is in the format 'YYYY-MM-DD'
+    const formattedDate = date.toISOString().split('T')[0];
 
-  try {
-    const { data } = await axios.post(`/update-daily-check/${habitID}`, updateDailyValue);
+    const updateDailyValue = { date: formattedDate };
 
-    if (data.error) {
-      toast.error(data.error);
-    } else {
-      // Update the habits state with the updated data
-      props.setHabits(data.user.habits);
+    try {
+      const { data } = await axios.post(`/update-daily-check/${habitID}`, updateDailyValue);
 
-      console.log('Habit Completed for the day:', data);
-      toast.success('Habit added successfully');
-      props.handleClose();
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        
+        console.log('Habit Completed for the day:', data);
+        toast.success(`Habit Completed for the day!`);
+   
+        handleClosePopups();
+      }
+    } catch (error) {
+      toast.error('Error updating daily check');
+      console.error('Error updating daily check:', error.response?.data || error.message);
     }
-  } catch (error) {
-    toast.error('Error updating daily check');
-    console.error('Error updating daily check:', error.response?.data || error.message);
-  }
-};
+  };
 
-
-
-
-const HabitComponent = ({ habits }) => {
   return (
     <div className="habit-container">
       {habits.map((habit) => (
@@ -40,7 +38,8 @@ const HabitComponent = ({ habits }) => {
           <label className="habit-name" htmlFor="habit1">
             {habit.habit_name} {habit.emoji}
             <br />
-            <button type="button" className="add-entry-btn"></button>
+            {/* Pass the necessary arguments to updateDailyCheck in the onClick handler */}
+            <button type="button" className="add-entry-btn" onClick={(event) => updateDailyCheck(habit._id, new Date(), event)}></button>
           </label>
         </div>
       ))}
