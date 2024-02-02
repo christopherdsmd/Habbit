@@ -228,7 +228,9 @@ const getHabits = async (userId) => {
     }
 };
 
+const updateHabitCalandarData = async (habitId, req, res) => {
 
+};
 
     
 module.exports = {

@@ -17,7 +17,6 @@ const generateDateValues = (habitDates, startDate, endDate) => {
     currentDate.setDate(currentDate.getDate() + 1);
   }
 
-  console.log('Generated Date Values:', dateValues); // Added console.log
   return dateValues;
 };
 

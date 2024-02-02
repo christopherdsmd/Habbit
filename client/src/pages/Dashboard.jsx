@@ -76,7 +76,6 @@ export default function Dashboard() {
         {!!user && <h2>Welcome back, {user.name}! </h2>}
         <div className="Date and time">
           <hr className="solidline" />
-
           <div className="Habit Tracker Dyanamic">
             <DateTime />
             <p>
