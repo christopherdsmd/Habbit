@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import './calandarView.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
+import { Tooltip } from 'react-tooltip';
 
 const generateDateValues = (habitDates, startDate, endDate) => {
   const dateValues = [];
@@ -11,8 +11,7 @@ const generateDateValues = (habitDates, startDate, endDate) => {
 
   while (currentDate <= endDate) {
     const dateString = currentDate.toISOString().split('T')[0];
-    const count =
-      habitDates?.find((habitDate) => habitDate.date === dateString)?.count || 0;
+    const count = habitDates?.find((habitDate) => habitDate.date === dateString)?.count || 0;
     dateValues.push({ date: dateString, count });
     currentDate.setDate(currentDate.getDate() + 1);
   }
@@ -38,22 +37,22 @@ const CalendarView = ({ habits }) => {
             endDate={endDate}
             values={generateDateValues(habit.daily_check, startDate, endDate)}
             classForValue={value => {
-                if (!value || value === 0) {
-                  return 'color-empty';
-                }
-                return `color-github-${value.count}`;
-              }}
+              if (!value || value === 0) {
+                return 'color-empty';
+              }
+              return `color-github-${value.count}`;
+            }}
             showWeekdayLabels={true}
             showOutOfRangeDays={true}
             tooltipDataAttrs={(value) => {
               return {
-                'data-tip': `${value.date} has count: ${value.count}`,
+                'data-tip': 'test',
               };
-              
             }}
           />
         </div>
       ))}
+      <Tooltip id="myTooltip" anchorSelect=".habit-calendar h2" content="Hello world!" />
     </div>
   );
 };

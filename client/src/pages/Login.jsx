@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from 'axios'
 import {toast} from "react-hot-toast";
 import { Navigate, useNavigate } from "react-router-dom";
+import "./login.css";
 
 export default function Login() {
     const navigate = useNavigate()

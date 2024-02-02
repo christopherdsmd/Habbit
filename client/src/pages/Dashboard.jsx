@@ -8,6 +8,7 @@ import Popup from '../components/addPopup.jsx';
 import HabitComponent from '../components/habitComponent.jsx';
 import CalendarView from '../components/calandarView';
 import DeletePopup from '../components/deletePopup.jsx';
+import { Tooltip } from 'react-tooltip';
 
 const randInt = getRandomInt(); // for rand frog img on refresh
 
@@ -105,6 +106,7 @@ export default function Dashboard() {
           </div>
         </div>
       </header>
+      <Tooltip effect="solid" place="bottom" id="rotating-image-tooltip" />
     </div>
   );
 }

@@ -22,8 +22,8 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
       // Log the current count value for today
       console.log('Current Count Value for Today:', currentCountValue);
   
-      // Check if the count is less than 5
-      if (currentCountValue < 5) {
+      // Check if the count is less than 4
+      if (currentCountValue < 4) {
         // Increment the count value
         const updatedCountValue = currentCountValue + 1;
         setCountValue(updatedCountValue);
@@ -48,8 +48,8 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
         console.log('Habit Completed for the day');
         toast.success('Habit Completed for the day!');
       } else {
-        console.log('Max Completions of 5 reached');
-        toast.success('Max Completions of 5 reached');
+        console.log('Max Completions of 4 reached');
+        toast.success('Max Completions of 4 reached');
       }
   
       handleClosePopups();
@@ -59,24 +59,25 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
       console.error('Error updating daily check:', error.response?.data || error.message);
     }
   };
+
+  
   return (
     <div className="habit-container">
       {habits.map((habit) => (
         <div key={habit._id} className="habit-entry">
-          <label className="habit-name" htmlFor="habit1">
+          <label className="habit-name" htmlFor={`habit-${habit._id}`}>
             {habit.habit_name} {habit.emoji}
             <br />
-            <button
-              type="button"
+            <input
+              type="checkbox"
+              id={`habit-${habit._id}`}
               className="add-entry-btn"
-              onClick={(event) => updateDailyCheck(habit._id, habit.daily_check, new Date(), event)}
-            ></button>
-
+              onChange={(event) => updateDailyCheck(habit._id, habit.daily_check, new Date(), event)}
+            />
           </label>
         </div>
       ))}
     </div>
   );
 };
-
 export default HabitComponent;
