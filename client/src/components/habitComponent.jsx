@@ -2,21 +2,37 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import './habitComponents.css';
-import DateTime from '../functions/dateandtime';
 
 const HabitComponent = ({ habits, handleClosePopups }) => {
   const [countValues, setCountValues] = useState({});
-  const [clickedToday, setClickedToday] = useState({});
+  const [clickedToday, setClickedToday] = useState(() => {
+    // Load clickedToday values from localStorage, or set to empty object if not found
+    const savedClickedToday = JSON.parse(localStorage.getItem('clickedToday'));
+    return savedClickedToday || {};
+  });
 
   useEffect(() => {
-    // Reset clickedToday state at the start of each day
-    const today = new Date().toISOString().split('T')[0];
-    const storedDate = localStorage.getItem('lastClickedDate');
-    if (storedDate !== today) {
-      setClickedToday({});
-      setCountValues({});
-      localStorage.setItem('lastClickedDate', today);
-    }
+    const checkDateChange = () => {
+      // Get the current date
+      const today = new Date().toISOString().split('T')[0];
+      // Get the last clicked date from localStorage
+      const storedDate = localStorage.getItem('lastClickedDate');
+      // If the stored date is different from today, reset the clickedToday state and localStorage
+      if (storedDate !== today) {
+        setClickedToday({});
+        localStorage.setItem('clickedToday', JSON.stringify({}));
+        localStorage.setItem('lastClickedDate', today);
+      }
+    };
+
+    // Check for date change when the component mounts
+    checkDateChange();
+
+    // Check for date change every minute to handle cases where the date changes while the component is mounted
+    const interval = setInterval(checkDateChange, 60000);
+
+    // Clean up the interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
   const updateDailyCheck = async (habitId, habitDates, date, event) => {
@@ -41,6 +57,8 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
           ...prevState,
           [habitId]: true
         }));
+        // Save clickedToday value to localStorage
+        localStorage.setItem('clickedToday', JSON.stringify({...clickedToday, [habitId]: true}));
       }
 
       // Log the current count value for today
@@ -107,4 +125,5 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
     </div>
   );
 };
+
 export default HabitComponent;
