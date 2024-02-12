@@ -5,11 +5,23 @@ import './habitComponents.css';
 import DateTime from '../functions/dateandtime';
 
 const HabitComponent = ({ habits, handleClosePopups }) => {
-  const [countValue, setCountValue] = useState(0);
+  const [countValues, setCountValues] = useState({});
+  const [clickedToday, setClickedToday] = useState({});
+
+  useEffect(() => {
+    // Reset clickedToday state at the start of each day
+    const today = new Date().toISOString().split('T')[0];
+    const storedDate = localStorage.getItem('lastClickedDate');
+    if (storedDate !== today) {
+      setClickedToday({});
+      setCountValues({});
+      localStorage.setItem('lastClickedDate', today);
+    }
+  }, []);
 
   const updateDailyCheck = async (habitId, habitDates, date, event) => {
     event.preventDefault();
-  
+
     try {
       // Find the daily check data for today
       const todayDate = date.toISOString().split('T')[0];
@@ -17,33 +29,48 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
       
       // Get the count value for today
       const currentCountValue = todayCheck ? todayCheck.count : 0;
-      setCountValue(currentCountValue);
-  
+      setCountValues(prevState => ({
+        ...prevState,
+        [habitId]: currentCountValue
+      }));
+
+      // Check if the button has been clicked today
+      if (!clickedToday[habitId]) {
+        // Set clickedToday for this habit to true
+        setClickedToday(prevState => ({
+          ...prevState,
+          [habitId]: true
+        }));
+      }
+
       // Log the current count value for today
       console.log('Current Count Value for Today:', currentCountValue);
-  
+
       // Check if the count is less than 4
       if (currentCountValue < 4) {
         // Increment the count value
         const updatedCountValue = currentCountValue + 1;
-        setCountValue(updatedCountValue);
-  
+        setCountValues(prevState => ({
+          ...prevState,
+          [habitId]: updatedCountValue
+        }));
+
         console.log(updatedCountValue);
-  
+
         // Format date to match db
         const formattedDate = date.toISOString().split('T')[0];
         const updateDailyValue = { date: formattedDate };
-  
+
         console.log(updateDailyValue);
-  
+
         const newDailycheckObj = {
           date: formattedDate,
           count: updatedCountValue,
         };
-       
+
         // Send post request back for today's date count + 1
         await axios.post(`/update-daily-check/${habitId}`, newDailycheckObj);
-  
+
         // Success
         console.log('Habit Completed for the day');
         toast.success('Habit Completed for the day!');
@@ -51,7 +78,7 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
         console.log('Max Completions of 4 reached');
         toast.success('Max Completions of 4 reached');
       }
-  
+
       handleClosePopups();
     } catch (error) {
       // Send error for error
@@ -60,7 +87,6 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
     }
   };
 
-  
   return (
     <div className="habit-container">
       {habits.map((habit) => (
@@ -68,12 +94,13 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
           <label className="habit-name" htmlFor={`habit-${habit._id}`}>
             {habit.habit_name} {habit.emoji}
             <br />
-            <input
-              type="checkbox"
+            <button
               id={`habit-${habit._id}`}
-              className="add-entry-btn"
-              onChange={(event) => updateDailyCheck(habit._id, habit.daily_check, new Date(), event)}
-            />
+              className={`add-entry-btn ${clickedToday[habit._id] ? 'clicked-today' : ''}`}
+              onClick={(event) => updateDailyCheck(habit._id, habit.daily_check, new Date(), event)}
+            >
+              {clickedToday[habit._id] && <span className="checkmark-animation">✓</span>}
+            </button>
           </label>
         </div>
       ))}

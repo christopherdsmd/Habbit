@@ -38,12 +38,14 @@ export default function Login() {
     return (
     <div>    
         <form onSubmit={loginUser} type = 'login'>       
+            <h2>Welcome to Habit! <br/> Login</h2>
             <label>Email</label>
             <input type = 'email'value={data.email} onChange={(e) => setData({...data, email: e.target.value })}/>
             <br/>
             <label>Password</label>
             <input type = 'password'value={data.password} onChange={(e) => setData({...data, password: e.target.value })}/>
             <br/>
+            <button type = 'submit'>Continue as Guest</button>
             <button type = 'submit'>Login</button>
             <br/>
         </form> 

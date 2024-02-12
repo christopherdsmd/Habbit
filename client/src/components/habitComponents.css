@@ -21,4 +21,18 @@
   padding: 10px 11px; /* Adjust padding for a more square and bigger button */
   border: 2px solid #000000; /* Add a white border, adjust thickness and color as needed */
   cursor: pointer;
+  width: 40px; /* Set a fixed width for the button */
+  height: 40px; /* Set a fixed height for the button */
+  padding: 0;
+}
+
+.habit-container .habit-entry .add-entry-btn .checkmark-animation {
+  color: green; /* Change the color to green */
+}
+
+/* Optionally, you can add transition for a smooth animation */
+.habit-container .habit-entry .add-entry-btn .checkmark-animation {
+  color: green; /* Change the color to green */
+  transition: color 0.3s ease; /* Add transition for a smooth animation */
+  font-size: 2em;
 }

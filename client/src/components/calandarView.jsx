@@ -46,13 +46,13 @@ const CalendarView = ({ habits }) => {
             showOutOfRangeDays={true}
             tooltipDataAttrs={(value) => {
               return {
-                'data-tip': 'test',
+                'data-tip': `Date: ${value.date}, Count: ${value.count}`,
               };
             }}
           />
+          <Tooltip id="myTooltip" />
         </div>
       ))}
-      <Tooltip id="myTooltip" anchorSelect=".habit-calendar h2" content="Hello world!" />
     </div>
   );
 };

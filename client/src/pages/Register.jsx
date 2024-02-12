@@ -44,7 +44,7 @@ export default function Register() {
                  <label>Password</label>
                  <input type = 'password'value={data.password} onChange={(e) => setData({...data, password: e.target.value})}/>
                  <br/>
-                 <button type = 'submit'>submit</button>
+                 <button type = 'submit'>Submit</button>
                  <br/>
             </form>
             </div>
