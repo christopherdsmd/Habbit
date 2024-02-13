@@ -13,6 +13,27 @@
   width: 300px;
   text-align: center;
 }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container label {
+  width: 100px; /* Set a fixed width for labels */
+  text-align: right; /* Align text to the right */
+  margin-right: 10px; /* Add some margin between label and input */
+}
+
+.form-container input {
+  margin-bottom: 10px;
+}
+
+.form-container button {
+  margin-top: 10px;
+}
+
+
 
 .login-title {
   color: #333333;
@@ -30,8 +51,24 @@ input {
   border-radius: 5px;
 }
 
+
+
+.form-box label {
+  width: 100%; /* Labels take full width */
+  text-align: right; /* Align text to the right */
+  margin-bottom: 5px; /* Adjust margin as needed */
+}
+
+.form-box input {
+  width: 30%; /* Inputs take full width */
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.Register-button  {
+  background-color: rgba(19, 204, 195, 0.76);
+}
+
 button {
-  background-color: #4caf50;
   color: #fff;
   border: none;
   padding: 10px;
@@ -40,5 +77,5 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: rgba(255, 255, 255, 0.171);
 }

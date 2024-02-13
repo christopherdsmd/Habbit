@@ -33,16 +33,20 @@ export default function Register() {
 }
 
     return (
+        
         <div>
+              <h2>Welcome to Habit! <br/> 
+              <img src="\public\assets\frog_login.png"  width="128"
+            height="128"></img> <br/>Register</h2>
             <form onSubmit={registerUser} type = 'register'>
-                 <label>Name</label>
-                 <input type = 'text' value={data.name} onChange={(e) => setData({...data, name: e.target.value})}/>
+                 <label></label> 
+                 <input type = 'text' value={data.name} placeholder="Name" onChange={(e) => setData({...data, name: e.target.value})}/>
                  <br/>
-                 <label>Email</label>
-                 <input type = 'email'value={data.email} onChange={(e) => setData({...data, email: e.target.value})}/>
+                 <label></label>
+                 <input type = 'email'value={data.email}placeholder="Email" onChange={(e) => setData({...data, email: e.target.value})}/>
                  <br/>
-                 <label>Password</label>
-                 <input type = 'password'value={data.password} onChange={(e) => setData({...data, password: e.target.value})}/>
+                 <label></label>
+                 <input type = 'password'value={data.password} placeholder="Password" onChange={(e) => setData({...data, password: e.target.value})}/>
                  <br/>
                  <button type = 'submit'>Submit</button>
                  <br/>

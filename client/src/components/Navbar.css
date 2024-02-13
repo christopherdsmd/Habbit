@@ -29,6 +29,17 @@ nav button {
   text-decoration: none;
 }
 
+.links  .signout  {
+  background-color: transparent;
+  border: none;
+  color: inherit; /* Inherit text color */
+  cursor: pointer;
+  font-size: inherit; /* Inherit font size */
+  outline: none;
+  padding: 0;
+}
+
+
 .links a:hover {
   text-decoration: underline;
 }

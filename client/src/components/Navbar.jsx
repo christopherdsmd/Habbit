@@ -1,9 +1,25 @@
 import React from "react";
 import {Link } from "react-router-dom"
 import  './Navbar.css'
+import toast from "react-hot-toast";
 
 export default function Navbar() {
 
+    const signoutUser = async () => {
+        try {
+          // Make a request to the server to sign out the user
+          await axios.post('/signout');
+          // After successful signout, clear user data and navigate to the login page
+          setData({ email: '', password: '' });
+          navigate('/login'); // Assuming '/login' is the path to the login page
+          toast.success('Signout Success!');
+        } catch (error) {
+          // Handle error if signout fails
+          console.error('Signout failed:', error);
+          toast.error('Signout failed. Please try again.');
+        }
+      };
+      
 
     return (
         <nav> 
@@ -15,13 +31,13 @@ export default function Navbar() {
             <div className="links">
                 <Link to ='/save-the-frogs'>Save the Frogs! </Link> <br/>
                 <p> | </p>
-                <Link to ='/login' >Signout</Link> <br/>
-                <Link to ='/dashboard' >Home</Link> <br/>
+                <Link to ='/dashboard' > Home</Link> <br/>
+                <button className="signout" onClick={signoutUser}>Signout </button> <br />
                 <Link to ='/login'>Login</Link><br/>
                 <Link to ='/register'>Register</Link>
         
                 <a href="https://www.linkedin.com/in/christopherpdesmond/"> About </a>
-                <button id="lightDarkButton"> <img src={'assets/Light-Dark mode photos/sun-icon.png'} alt="light mode" width="30" height="30" /> </button>
+                <button  id="lightDarkButton"> <img src={'assets/Light-Dark mode photos/sun-icon.png'} alt="light mode" width="30" height="30" /> </button>
             </div>
         </nav>
     )

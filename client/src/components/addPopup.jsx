@@ -57,9 +57,14 @@ const Popup = (props) => {
     }
   };
 
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+
+ 
   return (
-    <div className="popup-box">
-      <div className="box">
+    <div className="popup-overlay" onClick={props.handleClose}>
+      <div className="popup" onClick={stopPropagation}>
         <button className="btn-close" onClick={props.handleClose}>
           x
         </button>
