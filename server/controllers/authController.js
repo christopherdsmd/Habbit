@@ -233,9 +233,25 @@ const getHabits = async (userId) => {
     }
 };
 
-const updateHabitCalandarData = async (habitId, req, res) => {
+const guestDelete = async(req, res) => {
+    try {
+        // Find the user with the email "guest@guest"
+        const user = await User.findOne({ email: "guest@guest" });
+        if (!user) {
+            return res.status(404).json({ error: "Guest account not found" });
+        }
 
+        // Delete all habits associated with the guest account
+        await Habit.deleteMany({});
+
+        // Respond with success message
+        res.json({ message: "All habits for the guest account have been deleted" });
+    } catch (error) {
+        console.error("Error deleting habits for guest account:", error);
+        res.status(500).json({ error: "Failed to delete habits for guest account" });
+    }
 };
+
 
     
 module.exports = {
@@ -246,5 +262,6 @@ module.exports = {
     addHabit,
     getHabits,
     deleteHabit,
-    signoutUser
+    signoutUser,
+    guestDelete
 }

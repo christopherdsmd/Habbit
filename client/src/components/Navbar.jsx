@@ -19,7 +19,7 @@ export default function Navbar() {
           // After successful signout, clear user data and navigate to the login page
           setData({ email: null, password: null });
           navigate('/login')
-          toast.success('Signout Success!');
+          toast.success('You have been signed out');
         } catch (error) {
           // Handle error if signout fails
           console.error('Signout failed:', error);
@@ -27,7 +27,6 @@ export default function Navbar() {
         }
       };
       
-
     return (
         <nav> 
              <div className="logo-container">
@@ -38,7 +37,6 @@ export default function Navbar() {
             <div className="links">
                 <Link to ='/save-the-frogs'>Save the Frogs! </Link> <br/>
                 <p> | </p>
-                <Link to ='/dashboard' > Home</Link> <br/>
                 <button className="signout" onClick={signoutUser} >Signout  </button> <br />
                 <Link to ='/login'>Login</Link><br/>
                 <Link to ='/register'>Register</Link>

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors')
 const jwt = require('jsonwebtoken');
-const { test,registerUser,loginUser, getProfile, addHabit, getHabits, deleteHabit, signoutUser } = require('../controllers/authController')
+const { test,registerUser,loginUser, getProfile, addHabit, getHabits, deleteHabit, signoutUser,guestDelete } = require('../controllers/authController')
 const { User, Habit } = require('../models/user.js');
 const { ObjectId } = require('mongoose').Types;
 
@@ -22,6 +22,7 @@ router.post('/register', registerUser)
 router.post('/login', loginUser)
 router.get('/profile', getProfile)
 router.post('/signout', signoutUser)
+router.delete('/habits/guest', guestDelete)
 
 
 //habit routes 

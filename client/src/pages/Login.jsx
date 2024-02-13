@@ -12,6 +12,32 @@ export default function Login() {
         password: '', 
     })
 
+    const loginAsGuest = async (event) => {
+        event.preventDefault()
+
+        const guestData =  {
+        email: 'guest@guest',
+        password: 'guestPassword123'}
+
+        try {
+            // Send login request with guest account credentials
+            await axios.post('/login', guestData );
+            
+
+            //if login error 
+            if(data.error) {
+                toast.error(data.error)     
+            } else {
+                setData({});
+                await axios.delete(`/habits/guest`);
+                navigate('/dashboard')  //send user to dashboard on successful login
+                toast.success('Guest Login')
+            }
+        } catch (error) {
+        }
+    }
+
+
     const loginUser = async(event) => {
      event.preventDefault()
         const {email,password} = data
@@ -20,8 +46,6 @@ export default function Login() {
                 email,
                 password
             }); 
-
-
             //if login error 
             if(data.error) {
                 toast.error(data.error)     
@@ -31,15 +55,12 @@ export default function Login() {
                 toast.success('Login Success!')
             }
         } catch (error) {
-         
         }
     }
 
     const handleRegisterClick = () => {
         navigate('/register'); // Navigate to the Register page
     };
-
-
 
     return (
           <div className="form-box">
@@ -51,7 +72,8 @@ export default function Login() {
               <input type="email" value={data.email} onChange={(e) => setData({...data, email: e.target.value })}   placeholder="Email"/><br/>
               <label></label> 
               <input type="password" value={data.password} onChange={(e) => setData({...data, password: e.target.value })} placeholder="Password"/> <br/>
-              <button type="submit">Continue as Guest</button>
+
+              <button type="button" onClick={loginAsGuest}>Continue as Guest</button>
               <button type="submit">Login</button>
             </form> 
             <br/> <br/> <br/> 
@@ -59,6 +81,5 @@ export default function Login() {
             <h3>Don't have an Account? </h3>
             <button className="Register-button" onClick={handleRegisterClick}>Register</button>
           </div>
-      );
-      
+      );  
 }
