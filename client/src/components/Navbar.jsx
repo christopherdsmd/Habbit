@@ -1,17 +1,24 @@
 import React from "react";
-import {Link } from "react-router-dom"
+import {Link, Navigate, useNavigate } from "react-router-dom"
 import  './Navbar.css'
 import toast from "react-hot-toast";
+import axios from "axios";
+import { useState } from "react";
 
 export default function Navbar() {
+    const navigate = useNavigate()
+    const [data, setData] = useState({
+        email: '',
+        password: '', 
+    })
 
     const signoutUser = async () => {
         try {
           // Make a request to the server to sign out the user
           await axios.post('/signout');
           // After successful signout, clear user data and navigate to the login page
-          setData({ email: '', password: '' });
-          navigate('/login'); // Assuming '/login' is the path to the login page
+          setData({ email: null, password: null });
+          navigate('/login')
           toast.success('Signout Success!');
         } catch (error) {
           // Handle error if signout fails
@@ -32,7 +39,7 @@ export default function Navbar() {
                 <Link to ='/save-the-frogs'>Save the Frogs! </Link> <br/>
                 <p> | </p>
                 <Link to ='/dashboard' > Home</Link> <br/>
-                <button className="signout" onClick={signoutUser}>Signout </button> <br />
+                <button className="signout" onClick={signoutUser} >Signout  </button> <br />
                 <Link to ='/login'>Login</Link><br/>
                 <Link to ='/register'>Register</Link>
         

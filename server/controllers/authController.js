@@ -83,6 +83,11 @@ try {
  }
 }
  
+const signoutUser = async (req,res) => {
+    res.clearCookie('token');
+    res.json({ message: 'User signed out successfully' });
+}
+
 //verify json webtoken
 const getProfile = (req,res) => {
     const {token} = req.cookies
@@ -241,4 +246,5 @@ module.exports = {
     addHabit,
     getHabits,
     deleteHabit,
+    signoutUser
 }
