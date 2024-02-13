@@ -1,0 +1,39 @@
+.container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .center-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .company-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .company-details {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 20px;
+  }
+  
+  .company-name {
+    font-size: 24px; /* Adjusted font size */
+    margin-bottom: 5px;
+  }
+  
+  .company-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 700px;
+  }
+  
+  .company-image {
+    width: 128px;
+    height: 128px;
+  }
+  

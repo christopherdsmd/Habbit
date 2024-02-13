@@ -72,7 +72,7 @@ export default function Login() {
         <div className="form-box">
             <form onSubmit={loginUser} type="login">
                 <h2>Welcome to Habit! <br /><br />
-                    <img src="\assets\frog_login.png" width="128" height="128" alt="Frog" /> <br />Login</h2>
+                    <img src="\assets\frog_login.png" width="128" height="128" alt="Frog_login" /> <br />Login</h2>
                 <label></label>
                 <input type="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} placeholder="Email" /><br />
                 <label></label>

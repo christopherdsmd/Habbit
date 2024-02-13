@@ -2,8 +2,8 @@ import React from 'react';
 import './calandarView.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
-import { Tooltip } from 'react-tooltip';
-import HeatMap from '@uiw/react-heat-map';
+import 'react-tooltip/dist/react-tooltip.css'
+import {Tooltip} from 'react-tooltip';
 
 const generateDateValues = (habitDates, startDate, endDate) => {
   const dateValues = [];
@@ -18,6 +18,12 @@ const generateDateValues = (habitDates, startDate, endDate) => {
   }
 
   return dateValues;
+};
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
 };
 
 const CalendarView = ({ habits }) => {
@@ -38,20 +44,21 @@ const CalendarView = ({ habits }) => {
             endDate={endDate}
             values={generateDateValues(habit.daily_check, startDate, endDate)}
             classForValue={value => {
-              if (!value || value === 0) {
+              if (!value || value.count === 0) {
                 return 'color-empty';
               }
               return `color-github-${value.count}`;
             }}
             showWeekdayLabels={true}
             showOutOfRangeDays={true}
-            tooltipDataAttrs={(value) => {
+            onClick={value => alert(`On ${formatDate(value.date)}, You Completed ${habit.habit_name} ${value.count} times.`)}
+            tooltipDataAttrs={value => {
               return {
-                'data-tip': `Date: ${value.date}, Count: ${value.count}`,
+                'data-tip': `${formatDate(value.date)} has count: ${value.count}`,
               };
             }}
           />
-          <Tooltip id="myTooltip" />
+          <Tooltip id="calendar-tooltip" /> {/* Added id for the tooltip */}
         </div>
       ))}
     </div>

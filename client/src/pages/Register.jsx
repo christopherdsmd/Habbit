@@ -27,17 +27,13 @@ export default function Register() {
                 navigate('/login')
             }
     }   catch(error) {
-       
-
     }
 }
-
-    return (
-        
+ return (
         <div>
               <h2>Welcome to Habit! <br/> <br/>
               <img src="\assets\frog_login.png"  width="128"
-            height="128"></img> <br/>Register</h2>
+            height="128" alt = "frog_register"></img> <br/>Register</h2>
             <form onSubmit={registerUser} type = 'register'>
                  <label></label> 
                  <input type = 'text' value={data.name} placeholder="Name" onChange={(e) => setData({...data, name: e.target.value})}/>
@@ -51,6 +47,6 @@ export default function Register() {
                  <button type = 'submit'>Create Account</button>
                  <br/>
             </form>
-            </div>
+         </div>
     )
 }
