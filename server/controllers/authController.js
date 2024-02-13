@@ -233,7 +233,8 @@ const getHabits = async (userId) => {
     }
 };
 
-const guestDelete = async(req, res) => {
+
+const guestDelete = async (req, res) => {
     try {
         // Find the user with the email "guest@guest"
         const user = await User.findOne({ email: "guest@guest" });
@@ -241,8 +242,27 @@ const guestDelete = async(req, res) => {
             return res.status(404).json({ error: "Guest account not found" });
         }
 
+        const token = req.cookies.token;
+
+        if (!token) {
+            return res.status(401).json({
+                error: 'Unauthorized: Missing token',
+            });
+        }
+
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decodedToken.id; // Assuming the user ID is stored in the token
+
+        if (userId !== user._id.toString()) {
+            return res.status(403).json({ error: "Unauthorized: Token does not match guest account" });
+        }
+
         // Delete all habits associated with the guest account
-        await Habit.deleteMany({});
+        await Habit.deleteMany({ _id: { $in: user.habits } });
+
+        // Clear the habits array in the user document
+        user.habits = [];
+        await user.save();
 
         // Respond with success message
         res.json({ message: "All habits for the guest account have been deleted" });
@@ -253,7 +273,6 @@ const guestDelete = async(req, res) => {
 };
 
 
-    
 module.exports = {
     test ,
     registerUser,
