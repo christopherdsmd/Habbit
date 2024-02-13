@@ -15,6 +15,9 @@ export default function Login() {
     const loginAsGuest = async (event) => {
         event.preventDefault()
 
+        alert('Warning: Guest accounts are unable to save data');
+
+
         const guestData =  {
         email: 'guest@guest',
         password: 'guestPassword123'}
@@ -31,7 +34,10 @@ export default function Login() {
                 setData({});
                 await axios.delete(`/habits/guest`);
                 navigate('/dashboard')  //send user to dashboard on successful login
+
                 toast.success('Guest Login')
+
+                
             }
         } catch (error) {
         }
