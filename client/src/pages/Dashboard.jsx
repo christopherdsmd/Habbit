@@ -89,9 +89,7 @@ export default function Dashboard() {
               <Popup setHabits={setHabits} handleClose={handleClosePopups} content={<div><h3>Add Habit</h3></div>} />
             )}
           </div>
-
           <hr className="solidline" />
-
           <div className="habit calandars">
             <p>
               <u>Calendar View</u>

@@ -69,23 +69,25 @@ export default function Login() {
     };
 
     return (
-          <div className="form-box">
-            <form onSubmit={loginUser} type="login">       
-              <h2>Welcome to Habit! <br/><br/>
-              <img src="\assets\frog_login.png"  width="128"
-            height="128"></img> <br/>Login</h2>
-              <label></label> 
-              <input type="email" value={data.email} onChange={(e) => setData({...data, email: e.target.value })}   placeholder="Email"/><br/>
-              <label></label> 
-              <input type="password" value={data.password} onChange={(e) => setData({...data, password: e.target.value })} placeholder="Password"/> <br/>
-
-              <button type="button" onClick={loginAsGuest}>Continue as Guest</button>
-              <button type="submit">Login</button>
-            </form> 
-            <br/> <br/> <br/> 
+        <div className="form-box">
+            <form onSubmit={loginUser} type="login">
+                <h2>Welcome to Habit! <br /><br />
+                    <img src="\assets\frog_login.png" width="128" height="128" alt="Frog" /> <br />Login</h2>
+                <label></label>
+                <input type="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} placeholder="Email" /><br />
+                <label></label>
+                <input type="password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} placeholder="Password" /> <br />
+    
+    
+                <button type="submit">Login</button>
+            </form>
+            <br /> <br /> <br />
             <hr className="solidline" />
             <h3>Don't have an Account? </h3>
-            <button className="Register-button" onClick={handleRegisterClick}>Register</button>
-          </div>
-      );  
-}
+            <button className="Register-button" onClick={handleRegisterClick}>Register</button> 
+            
+            <button type="button" className="Guest-button" onClick={loginAsGuest}>Continue as Guest</button>
+    
+        </div>
+    );
+    }    

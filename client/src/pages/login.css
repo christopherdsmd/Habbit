@@ -60,11 +60,15 @@ input {
 }
 
 .form-box input {
-  width: 30%; /* Inputs take full width */
+  width: 28%; /* Inputs take full width */
   margin-bottom: 10px; /* Adjust margin as needed */
 }
 
 .Register-button  {
+  background-color: rgba(19, 204, 195, 0.76);
+}
+
+.Guest-button {
   background-color: rgba(19, 204, 195, 0.76);
 }
 
@@ -75,6 +79,17 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.or {
+  margin: 0 10px;
+}
+
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.171);

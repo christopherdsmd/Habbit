@@ -3,6 +3,7 @@ import './calandarView.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 import { Tooltip } from 'react-tooltip';
+import HeatMap from '@uiw/react-heat-map';
 
 const generateDateValues = (habitDates, startDate, endDate) => {
   const dateValues = [];
