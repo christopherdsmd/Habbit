@@ -73,8 +73,9 @@ export default function Dashboard() {
           />
         </div>
 
-        <p>Daily Habit Tracker</p>
-        {!!user && <h2>Welcome back, {user.name}! </h2>}
+        <p style={{ marginBottom: '1' }}>Daily Habit Tracker</p>
+        {!!user && <h2 style={{ margin: '1' }}>Welcome back, {user.name}! </h2>}
+
         <div className="Date and time">
           <hr className="solidline" />
           <div className="Habit Tracker Dyanamic">
