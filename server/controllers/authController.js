@@ -188,7 +188,7 @@ const getHabits = async (userId) => {
     try {
         // Check if habitId is a valid ObjectId
         if (!ObjectId.isValid(habitId)) {
-            console.log('Invalid habitId:', habitId);
+       
             return { error: 'Invalid habitId' };
         }
 
@@ -221,10 +221,10 @@ const getHabits = async (userId) => {
         // Remove the habitId from the user's habits array
         await User.findByIdAndUpdate(userId, { $pull: { habits: habitId } });
 
-        // Log the deleted habit and updated user for debugging
-        console.log('Deleted Habit:', deletedHabit);
+        
+      
         const updatedUser = await User.findById(userId).populate('habits');
-        console.log('Updated User:', updatedUser);
+       
 
         return { message: 'Habit deleted successfully', deletedHabit, updatedUser };
     } catch (error) {

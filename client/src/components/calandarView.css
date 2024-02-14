@@ -14,4 +14,6 @@
     background-color: darkred;
   }
   
-  
+  .react-calendar-heatmap .color-empty {
+    fill: red;
+  }

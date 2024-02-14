@@ -44,7 +44,7 @@ const Popup = (props) => {
       } else {
         props.setHabits(data.user.habits);
 
-        console.log("Habit added successfully:", data);
+        console.log("Habit added successfully:");
         toast.success("Habit added successfully");
         props.handleClose();
       }

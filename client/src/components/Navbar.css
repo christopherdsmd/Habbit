@@ -1,4 +1,3 @@
-/* Navbar.css */
 nav {
   display: flex;
   justify-content: space-between;
@@ -29,7 +28,7 @@ nav button {
   text-decoration: none;
 }
 
-.links  .signout  {
+.links .signout {
   background-color: transparent;
   border: none;
   color: inherit; /* Inherit text color */
@@ -38,7 +37,6 @@ nav button {
   outline: none;
   padding: 0;
 }
-
 
 .links a:hover {
   text-decoration: underline;
@@ -55,7 +53,7 @@ nav a:hover {
 }
 
 #lightDarkButton {
-  background-color: blacks;
+  background-color: black; /* Corrected typo */
   border: none;
   cursor: pointer;
 }
@@ -71,4 +69,15 @@ nav a:hover {
 
 .text {
   margin-left: 10px; /* Adjust the margin to position it on the left */
+}
+
+.navbar-dark {
+  background-color: #000000;
+  color: #fff;
+}
+
+/* Light mode */
+.navbar-light {
+  background-color: #e4e5f1;
+  color: #333;
 }

@@ -30,7 +30,7 @@ const DeletePopup = ({ userID, setDeletePopupOpen, handleClosePopups  }) => {
             } else {
                 // Assuming you passed setHabits as a prop to DeletePopup
     
-                console.log("Habit deleted successfully:", data);
+                console.log("Habit deleted successfully:");
                 toast.success("Habit deleted successfully");
                 handleClosePopups();
             }

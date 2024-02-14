@@ -16,7 +16,7 @@ const DynamicCheckbox = () => {
         const users = await response.json();
         setUsers(users.data);
       } catch (e) {
-        console.log(e);
+    
       }
     };
     fetchData(API);

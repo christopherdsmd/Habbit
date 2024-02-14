@@ -24,7 +24,7 @@ const SaveTheFrogs = () => {
             <p className="company-description">Founded by Dr. Kerry Kriger, Save the Frogs is a large global team of scientists, educators, policymakers, and naturalists with the goal of protecting frog and amphibian wildlife around the world.</p>
           </div>
           <img src="\assets\save_the_frogs.jpg" className="company-image" alt="Save the Frogs" />
-        </div>
+        </div><br/>
 
         <div className="company-info">
           <div className="company-details">
@@ -32,7 +32,7 @@ const SaveTheFrogs = () => {
             <p className="company-description">The Amphibian Foundation is a nonprofit organization. Its goal is to connect individuals and communities with solutions to the global amphibian extinction crisis. Based in Atlanta, the team focuses on various conservation programs and education for everyone to explore.</p>
           </div>
           <img src="\assets\Amphibian_Foundation_MembershipWHITE-SM2.png" className="company-image" alt="The Amphibian Foundation" />
-        </div>
+        </div><br/>
 
         <div className="company-info">
           <div className="company-details">
