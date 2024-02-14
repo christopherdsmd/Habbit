@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import './Navbar.css';
 
 export default function Navbar({ theme, toggleTheme }) {
-  const [isNavDarkMode, setNavIsDarkMode] = useState(false);
+  const [isNavDarkMode, setNavIsDarkMode] = useState(true);
   const navigate = useNavigate();
 
   const toggleNavbarTheme = () => {
-    console.log('Toggling navbar theme');
     setNavIsDarkMode(prevMode => !prevMode);
   };
 
@@ -24,36 +23,44 @@ export default function Navbar({ theme, toggleTheme }) {
     }
   };
 
+  const navigateToSaveTheFrogs = () => {
+    navigate('/save-the-frogs');
+  };
+
+  const navigateToLogin = () => {
+    navigate('/login');
+  };
+
+  const navigateToRegister = () => {
+    navigate('/register');
+  };
+
+  const navigateToAbout = () => {
+    window.open("https://www.linkedin.com/in/christopherpdesmond/", "_blank");
+  };
+
   const toggleLight_DarkModeTheme = () => {
-    console.log('Toggling light/dark mode');
     toggleTheme(); 
     toggleNavbarTheme();
-  
   };
 
   return (
     <div>
-    <nav className={`Navbar ${isNavDarkMode ? 'navbar-dark' : 'navbar-light'}`}>
-
+      <nav className={`Navbar ${isNavDarkMode ? 'navbar-dark' : 'navbar-light'}`}>
         <div className="logo-container">
-          <Link to="/dashboard">Habbit</Link>
+          <button onClick={() => navigate('/dashboard')}>Habbit</button>
           <img src="assets/frog_hole.png" width="30" height="30" alt="frog logo" />
         </div>
 
-        <div className="links">
-          <Link to="/save-the-frogs">Save the Frogs! </Link> <br />
-          <p> | </p>
-          <button className="signout" onClick={signoutUser}>
-            Signout 
-          </button>{' '}
-          <br />
-          <Link to="/login">Login</Link>
-          <br />
-          <Link to="/register">Register</Link>
-          <a href="https://www.linkedin.com/in/christopherpdesmond/"> About </a>
+        <div className="signout">
+          <button onClick={navigateToSaveTheFrogs}>Save the Frogs! | </button>
+          <button className="signout" onClick={signoutUser}>Signout </button> 
+          <button onClick={navigateToLogin}>Login </button>
+          <button onClick={navigateToRegister}>Register </button> 
+          <button onClick={navigateToAbout}>About</button> 
           <button onClick={toggleLight_DarkModeTheme} id="lightDarkButton">
             <img
-              src={theme === 'dark' ? 'assets/Light-Dark mode photos/sun-icon.png' : 'assets/Light-Dark mode photos/moon-icon.png'}
+              src={isNavDarkMode ? "assets/Light-Dark mode photos/sun-icon.png" : "assets/Light-Dark mode photos/moon-icon.png"}
               alt="light mode"
               width="30"
               height="30"

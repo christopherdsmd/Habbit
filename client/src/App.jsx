@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
@@ -21,22 +20,22 @@ function App() {
 
   const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode); // Toggle theme
+    document.body.classList.toggle('app-dark', !isDarkMode);
+    document.body.classList.toggle('app-light', isDarkMode);
   };
 
   return (
-    <div id="root" className={`app-${isDarkMode ? 'dark' : 'light'}`}>
-      <UserContextProvider>
-        <Navbar toggleTheme={toggleTheme} />
-        <Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/save-the-frogs' element={<SaveTheFrogs />} />
-        </Routes>
-      </UserContextProvider>
-    </div>
+    <UserContextProvider>
+      <Navbar toggleTheme={toggleTheme} />
+      <Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/save-the-frogs' element={<SaveTheFrogs />} />
+      </Routes>
+    </UserContextProvider>
   )
 }
 

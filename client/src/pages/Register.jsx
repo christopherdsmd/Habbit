@@ -42,7 +42,7 @@ export default function Register() {
                  <input type = 'email'value={data.email}placeholder="Email" onChange={(e) => setData({...data, email: e.target.value})}/>
                  <br/>
                  <label></label>
-                 <input type = 'password'value={data.password} placeholder="Password" onChange={(e) => setData({...data, password: e.target.value})}/>
+                 <input type =  "current-password" value={data.password} placeholder="Password" onChange={(e) => setData({...data, password: e.target.value})}/>
                  <br/>
                  <button type = 'submit'>Create Account</button>
                  <br/>

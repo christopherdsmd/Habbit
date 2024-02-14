@@ -1,3 +1,4 @@
+/* Navbar.css */
 nav {
   display: flex;
   justify-content: space-between;
@@ -8,12 +9,22 @@ nav {
 }
 
 nav button {
-  background-color: #464242;
+  background-color: transparent; /* Set background color to transparent */
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  outline: none;
+  padding: 0;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+}
+
+.logo-container > a {
+  margin-right: 0; /* Remove margin after the "Habbit" button */
 }
 
 .links {
@@ -29,7 +40,7 @@ nav button {
 }
 
 .links .signout {
-  background-color: transparent;
+  background-color: transparent; /* Set background color to transparent */
   border: none;
   color: inherit; /* Inherit text color */
   cursor: pointer;
@@ -53,9 +64,12 @@ nav a:hover {
 }
 
 #lightDarkButton {
-  background-color: black; /* Corrected typo */
-  border: none;
+  background-color: #8d8989; /* Add background color for light/dark mode button */
+  border: 10px;
   cursor: pointer;
+  margin: 8px;
+  width: 40px;
+  height: 30px;
 }
 
 #lightDarkButton img {
@@ -63,16 +77,12 @@ nav a:hover {
   height: 20px; /* Adjust the height as needed */
 }
 
-#lightDarkButton:hover {
-  opacity: 0.8; /* Add a hover effect if desired */
-}
-
 .text {
   margin-left: 10px; /* Adjust the margin to position it on the left */
 }
 
 .navbar-dark {
-  background-color: #000000;
+  background-color: #313131;
   color: #fff;
 }
 
@@ -80,4 +90,8 @@ nav a:hover {
 .navbar-light {
   background-color: #e4e5f1;
   color: #333;
+}
+
+.navbar-dark nav button {
+  background-color: transparent; /* Set background color to transparent */
 }

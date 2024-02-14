@@ -49,16 +49,18 @@ const CalendarView = ({ habits }) => {
               }
               return `color-github-${value.count}`;
             }}
-            showWeekdayLabels={true}
             showOutOfRangeDays={true}
-            onClick={value => alert(`On ${formatDate(value.date)}, You Completed ${habit.habit_name} ${value.count} times.`)}
             tooltipDataAttrs={value => {
               return {
-                'data-tip': `${formatDate(value.date)} has count: ${value.count}`,
+                'data-tip': `${value.date} has count: ${
+                  value.count
+                }`,
               };
             }}
-          />
-          <Tooltip id="calendar-tooltip" /> {/* Added id for the tooltip */}
+            showWeekdayLabels={true}
+            onClick={value => alert(`On ${formatDate(value.date)} You Completed '${habit.habit_name}' ${value.count} times.`)}
+            />
+          <Tooltip id="calendar-tooltip" /> 
         </div>
       ))}
     </div>

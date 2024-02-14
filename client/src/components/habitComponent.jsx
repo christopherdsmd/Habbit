@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import './habitComponents.css';
+import DateTime from '../functions/dateandtime';
 
 const HabitComponent = ({ habits, handleClosePopups }) => {
   const [countValues, setCountValues] = useState({});
@@ -12,31 +13,19 @@ const HabitComponent = ({ habits, handleClosePopups }) => {
   });
 
   useEffect(() => {
-    const checkDateChange = () => {
-      // Get the current date
-      const today = new Date().toISOString().split('T')[0];
-      // Get the last clicked date from localStorage
-      const storedDate = localStorage.getItem('lastClickedDate');
-      // If the stored date is different from today, reset the clickedToday state and localStorage
-      if (storedDate !== today) {
-        setClickedToday({});
-        localStorage.setItem('clickedToday', JSON.stringify({}));
-        localStorage.setItem('lastClickedDate', today);
-      }
-    };
-
-    // Check for date change when the component mounts
-    checkDateChange();
-
-    // Check for date change every minute to handle cases where the date changes while the component is mounted
-    const interval = setInterval(checkDateChange, 60000);
-
-    // Clean up the interval on unmount
-    return () => clearInterval(interval);
+    // Reset clickedToday state at the start of each day
+    const today = new Date().toISOString().split('T')[0];
+    const storedDate = localStorage.getItem('lastClickedDate');
+    if (storedDate !== today) {
+      setClickedToday({});
+      setCountValues({});
+      localStorage.setItem('lastClickedDate', today);
+    }
   }, []);
 
   const updateDailyCheck = async (habitId, habitDates, date, event) => {
     event.preventDefault();
+
 
     try {
       // Find the daily check data for today

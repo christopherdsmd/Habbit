@@ -5,6 +5,17 @@
   text-align: center;
 }
 
+.app-dark {
+  background-color: #202020; /* Dark mode background color */
+  color: #fff; /* Dark mode text color */
+}
+
+.app-light {
+  background-color: #ffffff; /* Light mode background color */
+  color: #333; /* Light mode text color */
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -50,9 +61,20 @@
   color: #333;
 }
 
+
 body {
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
-  background-color: #ffffff; /* Set the background color */
   min-height: 100vh; /* Ensure that the background color covers the entire viewport height */
+}
+
+body .app-dark  {
+  background-color: #202020;
+  color: #fff;
+}
+
+/* Light mode */
+body .app-light {
+  background-color: #ffffff;
+  color: #333;
 }

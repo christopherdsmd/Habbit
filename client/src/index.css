@@ -1,40 +1,46 @@
+/* Define dark mode and light mode styles using CSS variables */
 :root {
+  --background-color-dark: #202020; /* Dark mode background color */
+  --text-color-dark: #fff; /* Dark mode text color */
+
+  --background-color-light: #ffffff; /* Light mode background color */
+  --text-color-light: #333; /* Light mode text color */
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Apply dark mode styles */
+body {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
 
+/* Apply light mode styles */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+  }
+
+  /* Update button background color for light mode */
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Rest of your CSS styles using CSS variables */
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: center;
-  place-items: center;
-
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 
 button {
   border-radius: 8px;
@@ -43,31 +49,18 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #57b357;
+  background-color: #57b357; /* Default button background color */
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
-
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #436c91;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 .rotate-360 {
@@ -80,9 +73,8 @@ button:focus-visible {
 
 .solidline {
   border: 0;
-  width: 50%; 
-  height: 2px; 
-  background: #555454; 
-  margin: 15px auto; 
+  width: 50%;
+  height: 2px;
+  background: #555454;
+  margin: 15px auto;
 }
-
