@@ -25,6 +25,10 @@
   padding: 0;
 }
 
+.add-entry-btn:hover {
+  background-color: #8d89893a;
+}
+
 .habit-container .habit-entry .add-entry-btn .checkmark-animation {
   color: green; /* Change the color to green */
 }

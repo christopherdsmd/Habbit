@@ -18,6 +18,11 @@ nav button {
   padding: 0;
 }
 
+nav button:hover {
+  background-color: transparent;
+
+}
+
 .logo-container {
   display: flex;
   align-items: center;

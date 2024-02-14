@@ -70,7 +70,8 @@ const Popup = (props) => {
         </button>
         <form onSubmit={addHabit}>
           <label>
-            <input
+            <input 
+             className="input-small"
               type="text"
               value={habitName}
               onChange={(e) => setHabitName(e.target.value)}
@@ -79,6 +80,7 @@ const Popup = (props) => {
           </label>
           <label>
             <input
+            className="input-small"
               type="text"
               value={selectedEmoji}
               readOnly
@@ -95,7 +97,7 @@ const Popup = (props) => {
             {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
           </label>
           <button className="btn-add" type="submit">
-            Submit
+            Add
           </button>
         </form>
       </div>

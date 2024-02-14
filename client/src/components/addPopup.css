@@ -15,7 +15,7 @@
   position: relative;
   width: 80%; /* Adjust as needed */
   max-width: 400px; /* Adjust as needed */
-  background: #2b2929;
+  background: #d3d3d3;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   z-index: 1001;
@@ -34,6 +34,13 @@
   right: 15px;
   font-size: 20px;
   color: #ffffff; /* Adjust text color as needed */
+}
+.btn-close:hover {
+  background-color: #57b357;
+}
+
+.input-small {
+  width: 350px;
 }
 
 .btn-add,

@@ -73,8 +73,8 @@ export default function Dashboard() {
           />
         </div>
 
-        <p style={{ marginBottom: '1' }}>Daily Habit Tracker</p>
-        {!!user && <h2 style={{ margin: '1' }}>Welcome back, {user.name}! </h2>}
+        <p style={{ marginBottom: '0' }}>Daily Habit Tracker</p>
+        {!!user && <h2 style={{ margin: '0' }}>Welcome back, {user.name}! </h2>}
 
         <div className="Date and time">
           <hr className="solidline" />
