@@ -5,6 +5,7 @@ const {mongoose} = require('mongoose')
 const cookieParser = require('cookie-parser');
 const emoji = require('emoji');
 
+
 const app = express();
 
 //database connection
@@ -16,9 +17,15 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(express.json())
 app.use(cookieParser());
 app.use(express.urlencoded({extended: false}))
+app.use(cors())
+
+app.get("/", (req,res) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.send("API is running.");
+}) 
+
 
 app.use('/', require('./routes/authRoutes'))
-
 
 //port 8000 server test 
 const port = 8000;

@@ -11,6 +11,7 @@ import { UserContextProvider } from '../context/userContext';
 import Dashboard from './pages/Dashboard';
 import SaveTheFrogs from './pages/save-the-frogs'
 
+
 // Set up axios defaults
 axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.withCredentials = true

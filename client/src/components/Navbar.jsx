@@ -48,7 +48,7 @@ export default function Navbar({ theme, toggleTheme }) {
     <div>
       <nav className={`Navbar ${isNavDarkMode ? 'navbar-dark' : 'navbar-light'}`}>
         <div className="logo-container">
-          <button onClick={() => navigate('/dashboard')}>Habbit</button>
+          <button onClick={() => navigate('/dashboard')}> Habbit</button>
           <img src="assets/frog_hole.png" width="30" height="30" alt="frog logo" />
         </div>
 
