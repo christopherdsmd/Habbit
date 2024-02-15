@@ -19,11 +19,6 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: false}))
 app.use(cors())
 
-app.get("/", (req,res) => {
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.send("API is running.");
-}) 
-
 
 app.use('/', require('./routes/authRoutes'))
 
