@@ -10,9 +10,11 @@ Introducing Habbit - your personal companion for building and maintaining health
 - Real-time Habit Tracking: Easily add and delete habits, and monitor your progress in real-time.
 - Calendar View: Visualize your habits over time with an intuitive calendar view.
 - Responsive Interface: Enjoy a fun, interactive, and responsive interface. Friendly for both mobile and desktop users.
-- ![image](https://github.com/christopherdsmd/Habbit/assets/104523163/538d97e4-90a7-49ab-ac8d-eb664417d670)
-- User Authentication: Secure your data with a user authentication login system.
+  
+![IMG_6641](https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2)
 
+- User Authentication: Secure your data with a user authentication login system using secure database practices
+  
 ## Technologies Used
 - MongoDB: A flexible NoSQL database for storing habit data.
 - Express: A robust web application framework for building the back-end server and APIs.
