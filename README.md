@@ -18,7 +18,7 @@ Welcome to Habbit! - your personal companion for building and maintaining health
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
 
-<p align="center">mobile display</br> 
+<p align="center">Mobile Display</br> 
   <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
 </p>
 
