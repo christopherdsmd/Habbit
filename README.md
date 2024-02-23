@@ -1,6 +1,6 @@
 # Habbit - Daily Habit Tracker 🐸
 Experience the power of habit tracking now! </br>
-Visit [Habbit Website](www.habbit.site)
+Visit [Habbit Website](https://www.habbit.site)
 
 <p align="center">
   <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/bd804c38-1f12-4422-97ba-a68fe88f25fb" /> 
