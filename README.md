@@ -13,7 +13,7 @@ Welcome to Habbit! - your personal companion for building and maintaining health
 ## Features
 - Real-time Habit Tracking: Easily add and delete habits, and monitor your progress in real-time.
 - Calendar View: Visualize your habits over time with an intuitive and dynamic calendar view.
-- Daily Frog Emoji: the dashboard displays a new frog emoji each day, check back daily to see each one! 
+- Daily Frog Emoji: the dashboard displays a new frog emoji art each day, check back daily to see each one! 
 - User Authentication: Secure your data with a user authentication login system using secure database practices
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
