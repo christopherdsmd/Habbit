@@ -2,7 +2,10 @@
 Experience the power of habit tracking now! </br>
 Visit [Habbit Website](www.habbit.site)
 
-![3b50c4ef-d68e-4b85-a54d-bb9053be0f3b](https://github.com/christopherdsmd/Habbit/assets/104523163/bd804c38-1f12-4422-97ba-a68fe88f25fb)
+<p align="center">
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/bd804c38-1f12-4422-97ba-a68fe88f25fb" /> 
+</p>
+
 ## Introduction
 
 Welcome to Habbit! - your personal companion for building and maintaining healthy habits effortlessly. With Habbit, you can easily track your daily routines, set new goals, and visualize your progress over time. Seamlessly designed for both desktop and mobile use, Habbit offers an easy to use interface for storing personal habits and tracking them on calandar for the year! Great for setting and tracking your personal goals. Increase your productivity, Take control of your habits with Habbit!
@@ -15,8 +18,8 @@ Welcome to Habbit! - your personal companion for building and maintaining health
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
 
-<p align="center">
-  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" />
+<p align="center">mobile display</br> 
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
 </p>
 
   
