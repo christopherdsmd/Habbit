@@ -11,9 +11,9 @@ Visit [Habbit Website](https://www.habbit.site)
 Welcome to Habbit! - your personal companion for building and maintaining healthy habits effortlessly. With Habbit, you can easily track your daily routines, set new goals, and visualize your progress over time. Seamlessly designed for both desktop and mobile use, Habbit offers an easy to use interface for storing personal habits and tracking them on calandar for the year! Great for setting and tracking your personal goals. Increase your productivity, Take control of your habits with Habbit!
 
 ## Features
-
 - Real-time Habit Tracking: Easily add and delete habits, and monitor your progress in real-time.
 - Calendar View: Visualize your habits over time with an intuitive and dynamic calendar view.
+- Daily Frog emoji: the dashboard displays a new frog emoji each day, check back daily to see each one! 
 - User Authentication: Secure your data with a user authentication login system using secure database practices
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
