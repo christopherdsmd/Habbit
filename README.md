@@ -14,8 +14,10 @@ Welcome to Habbit! - your personal companion for building and maintaining health
 - User Authentication: Secure your data with a user authentication login system using secure database practices
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
-![IMG_6641](https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2)
 
+<p align="center">
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" />
+</p>
 
   
 ## Technologies Used
