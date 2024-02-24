@@ -33,5 +33,7 @@ Welcome to Habbit! - your personal companion for building and maintaining health
 
 Habbit is a full-stack application consisting of two ends and a database. The frontend was developed in React JavaScript, providing a clean interface that interacts with the database using React hooks to dynamically update the application without needing to refresh. The frontend makes API requests to the backend, where login is handled. The backend was written in Node.js and handles server-side logic, including routing, database calls, and server optimization and configuration.
 
+</br>
+
 Achieve your goals, Track your Habits today! 
 www.habbit.site
