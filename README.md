@@ -23,15 +23,16 @@ Welcome to Habbit! - your personal companion for building and maintaining health
 </p>
 
   
-## Technologies Used
-- MongoDB: A flexible NoSQL database for storing habit data.
-- Express: A robust web application framework for building the back-end server and APIs.
-- React: A versatile JavaScript library for creating dynamic and interactive user interfaces.
-- Node.js: A runtime environment for executing server-side JavaScript code.
+## Technology Stack 
+MERN Stack 
+- MongoDB - Database
+- Express - Backend, APIs
+- React JS - Frontend
+- Node JS - Backend
 
 ## How it works
 
-Habbit is a full-stack application consisting of two ends and a database. The frontend was developed in React JavaScript, providing a clean interface that interacts with the database using React hooks to dynamically update the application without needing to refresh. The frontend makes API requests to the backend, where login is handled. The backend was written in Node.js and handles server-side logic, including routing, database calls, and server optimization and configuration.
+Habbit is a full-stack application consisting of two ends and a database. The frontend was developed in React JavaScript, providing a clean interface that interacts with the database using React hooks to dynamically update the application without needing to refresh. The frontend makes API requests to the backend, where login is handled. The backend was written in Node.js and handles server-side logic, including routing, database calls, and server optimization and configuration. Data is stored and fetched in a MongoDB database.
 
 </br>
 
