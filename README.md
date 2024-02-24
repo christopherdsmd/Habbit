@@ -1,5 +1,5 @@
 # Habbit - Daily Habit Tracker 🐸
-Experience the power of habit tracking now! </br>
+Experience the power of habit tracking now!
 Visit [Habbit Website](https://www.habbit.site)
 
 <p align="center">
