@@ -1,5 +1,4 @@
 # Habbit - Daily Habit Tracker 🐸
-Experience the power of habit tracking now!
 Visit [Habbit Website](https://www.habbit.site)
 
 <p align="center">
@@ -8,7 +7,7 @@ Visit [Habbit Website](https://www.habbit.site)
 
 ## Introduction
 
-Welcome to Habbit! - your personal companion for building and maintaining healthy habits effortlessly. With Habbit, you can easily track your daily routines, set new goals, and visualize your progress over time. Seamlessly designed for both desktop and mobile use, Habbit offers an easy to use interface for storing personal habits and tracking them on calandar for the year! Great for setting and tracking your personal goals. Increase your productivity, Take control of your habits with Habbit!
+Welcome to Habbit! - Inspired by the GitHub contributions graph, comes your own personal contribution bar for building and maintaining healthy habits effortlessly. With Habbit, you can easily track your daily routines, set new goals, and visualize your progress over time. Seamlessly designed for both desktop and mobile use, Habbit offers an easy-to-use interface for storing personal habits and tracking them on calendar for the year! Great for setting and tracking your personal goals. 
 
 ## Features
 - Real-time Habit Tracking: Easily add and delete habits, and monitor your progress in real-time.
@@ -36,5 +35,5 @@ Habbit is a full-stack application consisting of two ends and a database. The fr
 
 </br>
 
-Achieve your goals, Track your Habits today! 
+Start tracking your habits now!
 www.habbit.site
