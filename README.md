@@ -1,5 +1,5 @@
 # Habbit - Daily Habit Tracker 🐸
-A Contribution graph for your Daily Habits
+A Contribution graph for your Daily Habits <br/>
 Visit [Habbit Website](https://www.habbit.site)
 
 <p align="center">
