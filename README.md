@@ -3,7 +3,7 @@ A Contribution graph for your Daily Habits <br/>
 Visit [Habbit Website](https://www.habbit.site)
 
 <p align="center">
-  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/56c21592-c933-4641-bf01-7d3c7cc7d4eb" /> 
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/909fe103-a9d9-411f-932c-8a6bffebc4bd" /> 
 </p>
 
 ## Introduction
