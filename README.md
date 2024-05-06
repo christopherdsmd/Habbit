@@ -3,7 +3,7 @@ A Contribution graph for your Daily Habits <br/>
 Visit [Habbit Website](https://www.habbit.site)
 
 <p align="center">
-  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/bd804c38-1f12-4422-97ba-a68fe88f25fb" /> 
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/56c21592-c933-4641-bf01-7d3c7cc7d4eb" /> 
 </p>
 
 ## Introduction
@@ -18,7 +18,7 @@ Welcome to Habbit! - Inspired by the GitHub contributions graph, comes your own 
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
 
-<p align="center">Mobile Display</br> 
+<p align="center">Mobile View</br> 
   <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
 </p>
 
@@ -33,6 +33,27 @@ MERN Stack
 ## How it works
 
 Habbit is a full-stack application consisting of two ends and a database. The frontend was developed in React JavaScript, providing a clean interface that interacts with the database using React hooks to dynamically update the application without needing to refresh. The frontend makes API requests to the backend, where login is handled. The backend was written in Node.js and handles server-side logic, including routing, database calls, and server optimization and configuration. Data is stored and fetched in a MongoDB database.
+
+## Frontend/User Interface
+
+## Backend: Server routing
+
+## Database
+MongoDB was chosen for its simple use and NoSQL design, My use case for the database is pretty simple so this system worked perfectly.
+<p align="center">
+  Database schema for the user and the subschema for the individual habits inhabited by the user account. </br> 
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/e18b1e31-d87f-4b2f-b86e-1da3addc1d36" /> 
+</p>
+
+<p align="center">
+   A database administrator can view and manipulate, user and habit data in separate clusters </br> 
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/2cd6ce4a-a74e-49fc-a769-50babaa568c9" /> 
+</p>
+
+## Hosting
+The server is being hosted online at www.habbit.site, this custom domain was purchased via godaddy.com. Both my instance the website and server are hosted at render.com, The database is hosted through MongoDB 
+![image](https://github.com/christopherdsmd/Habbit/assets/104523163/d6bb7a98-861a-4741-894d-3e9b88bd395f)
+
 
 </br>
 
