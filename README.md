@@ -17,11 +17,6 @@ Welcome to Habbit! - Inspired by the GitHub contributions graph, comes your own 
 - User Authentication: Secure your data with a user authentication login system using secure database practices
 - Responsive Interface: Interactive, and responsive interface. Friendly for desktop users and mobile users.
   
-
-<p align="center">Mobile View</br> 
-  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
-</p>
-
   
 ## Technology Stack 
 MERN Stack 
@@ -34,9 +29,20 @@ MERN Stack
 
 Habbit is a full-stack application consisting of two ends and a database. The frontend was developed in React JavaScript, providing a clean interface that interacts with the database using React hooks to dynamically update the application without needing to refresh. The frontend makes API requests to the backend, where login is handled. The backend was written in Node.js and handles server-side logic, including routing, database calls, and server optimization and configuration. Data is stored and fetched in a MongoDB database.
 
-## Frontend/User Interface
+## Frontend/User-Interface
+The website frontend display for users was programmed in HTML, CSS, and Javascript React. The intention was to make the dashboard a seamless and intuitive user experience. React state hooks were used to provide a dynamically updating website, eliminating the need for cumbersome page refreshes, and reading data from the backend server API. Includes responsive design so that the website works on all devices in varying screen sizes (Desktop Computers, Laptops, Phones, Tablets etc.)
 
-## Backend: Server routing
+<p align="center">Mobile View</br> 
+  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
+</p>
+
+## Backend
+Utilizing Node.JS for server-side routing, the backend server transfers data between the database and frontend UI. CORS is configured to allow requests from specific origins and the middleware system has a function 'authenticateToken' which verifies the server JWT tokens sent in the request headers for sending and receiving user and habit data.
+ 
+
+User authentication system using bcrypt encryption to ensure user data and passwords are protected. 
+![image](https://github.com/christopherdsmd/Habbit/assets/104523163/7c042794-0029-49e5-b218-81b6815ebebc)
+
 
 ## Database
 MongoDB was chosen for its simple use and NoSQL design, My use case for the database is pretty simple so this system worked perfectly.
