@@ -1,6 +1,6 @@
 # Habbit - Daily Habit Tracker 🐸
 A Contribution graph for your Daily Habits <br/>
-Try it now! [Habbit Website](https://www.habbit.site) | [www.habbit.site](www.habbit.site)
+Try it now! [Habbit Website](https://www.habbit.site) | [www.habbit.site](https://www.habbit.site)
 
 <p align="center">
   <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/909fe103-a9d9-411f-932c-8a6bffebc4bd" /> 
