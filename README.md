@@ -41,7 +41,7 @@ Utilizing Node.JS for server-side routing, the backend server transfers data bet
  
 
 User authentication system using bcrypt encryption to ensure user data and passwords are protected. 
-![image](https://github.com/christopherdsmd/Habbit/assets/104523163/7c042794-0029-49e5-b218-81b6815ebebc)
+![image](https://github.com/christopherdsmd/Habbit/assets/104523163/f6380f29-fa37-4141-8a25-d42c40740e42)
 
 
 ## Database
