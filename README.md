@@ -31,6 +31,8 @@ Habbit is a full-stack application consisting of two ends and a database. The fr
 
 ## Frontend/User-Interface
 The website frontend display for users was programmed in HTML, CSS, and Javascript React. The intention was to make the dashboard a seamless and intuitive user experience. React state hooks were used to provide a dynamically updating website, eliminating the need for cumbersome page refreshes, and reading data from the backend server API. Includes responsive design so that the website works on all devices in varying screen sizes (Desktop Computers, Laptops, Phones, Tablets etc.)
+The x date and time library was used to configure. The NPM React heatmap library was used and configured to give users a new dynamic heatmap calandar for each habit under their user account. 
+a new frog artwork is displayed every day, or each mouse click/tap of the frog on the dahsboard (artwork provided by googles emojikitchen)
 
 <p align="center">Mobile View</br> 
   <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
