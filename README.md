@@ -36,9 +36,10 @@ The date and time javascript functionality was used to configure. [The 'React Ca
 
 a new frog artwork is displayed every day, or each mouse click/tap of the frog on the dahsboard (artwork provided by [Google's Emoji Kitchen](https://blog.google/products/android/feeling-all-the-feels-theres-an-emoji-sticker-for-that/) )
 
-<p align="center">Mobile View</br> 
-  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" /> 
-</p>
+| Mobile view | Tablet View |
+| ------------- | ------------- |
+|  <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/91efe531-4657-402d-9e4d-2f1f839d9df2" />| <img src="https://github.com/christopherdsmd/Habbit/assets/104523163/9d6d3a08-0780-4248-a4c5-68262661e27a" style="width: 300px; height: auto; display: block; margin: 0 auto;" /> |
+
 
 ## Backend
 Utilizing Node.JS for server-side routing, the backend server transfers data between the database and frontend UI. CORS is configured to allow requests from specific origins and the middleware system has a function 'authenticateToken' which verifies the server JWT tokens sent in the request headers for sending and receiving user and habit data.
