@@ -4,18 +4,19 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import './Navbar.css';
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({ theme, toggleTheme }) {  
+  //toggle light/dark mode sun/moon icon. when clicked toggles theme
   const [isNavDarkMode, setNavIsDarkMode] = useState(true);
   const navigate = useNavigate();
-
   const toggleNavbarTheme = () => {
     setNavIsDarkMode(prevMode => !prevMode);
   };
-
+  
+//signout request from navbar. deletes user token
   const signoutUser = async () => {
     try {
-      await axios.post('/signout');
-      navigate('/login');
+      await axios.post('/signout');  
+      navigate('/login');  //return to login page after successful login 
       toast.success('You have been signed out');
     } catch (error) {
       console.error('Signout failed:', error);
@@ -23,6 +24,7 @@ export default function Navbar({ theme, toggleTheme }) {
     }
   };
 
+  //navbar links 
   const navigateToSaveTheFrogs = () => {
     navigate('/save-the-frogs');
   };
